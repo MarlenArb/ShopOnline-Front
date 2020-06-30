@@ -1,3 +1,74 @@
-<p>
-  pform works!
-</p>
+<form #productForm="ngForm">
+  <div class="mt-2">
+
+    <div class="card">
+
+      <!--Header-->
+      <div class="card-header">
+        <span *ngIf="!product.idProduct" >Creando Producto</span>
+        <span *ngIf="product.idProduct" >Editando Producto</span>
+        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+          <span aria-hidden="true" class="">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="card-body">
+
+            <div class="form-group row">
+              <label for="productname" class="col-form-label col-sm-2">Nombre Producto</label>
+              <div class="input-group col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="product.productName" name="productname" required minlength="3" #product_name="ngModel">
+                <div class="input-group-append" *ngIf="product_name.invalid && (product_name.dirty || product_name.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="product_name.errors.required || product_name.errors.minlength">X</span>
+                </div>
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="productPrice" class="col-form-label col-sm-2">Precio
+                <span class="text-muted">(€)</span>
+              </label>
+              <div class="input-group col-sm-10">
+                <input type="number" class="form-control" [(ngModel)]="product.price" name="productPrice"required #product_price="ngModel">
+                <div class="input-group-append" *ngIf="product_price.invalid && (product_price.dirty || product_price.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="product_price.errors.required">X</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="descript" class="col-form-label col-sm-2">Descripción</label>
+              <div class="input-group col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="product.description" name="descript"required #p_description="ngModel">
+                <div class="input-group-append" *ngIf="p_description.invalid && (p_description.dirty || p_description.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="p_description.errors.required">X</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="supply" class="col-form-label col-sm-2">Provedor</label>
+              <div class="input-group col-sm-10">
+                <select name="supply" [compareWith]="compareSuppliers" class="form-control" [(ngModel)]="product.supplier">
+                  <option *ngFor="let supplier of suppliers" [ngValue]="supplier">{{ supplier.name }}</option>
+                </select>
+              </div>
+            </div>
+
+      </div>
+
+      <!--Footer-->
+      <div class="card-footer">
+        <button *ngIf="product.idProduct" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifyProduct()' [disabled]="!productForm.form.valid">Editar</button>
+        <button *ngIf="!product.idProduct" class="btn btn-edit ml-1" type="button" title="Añadir Producto" (click)='addProduct()' [disabled]="!productForm.form.valid">Crear</button>
+        <button *ngIf="product.idProduct" class="btn btn-edit" type="button" title="Borrar Producto" (click)='deleteProduct(product)'><i class="fas fa-trash"></i></button>
+      </div>
+
+    </div>
+
+
+  </div>
+  </form>
+

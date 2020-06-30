@@ -1,3 +1,45 @@
-<p>
-  product works!
-</p>
+<div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Productos
+  <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
+</div>
+
+<div class="row mt-2" *ngIf="filterActive">
+  <div class="col-sm-10">
+    <div class="form-group input-group">
+      <input type="text" class="form-control" name="filter" [(ngModel)]="filterPost" placeholder="Buscar producto.."  style="font-family: georgia,garamond,serif; font-style: italic;">
+      <div class="input-group-append" title="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
+        <span class="input-group-text nofilter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2" *ngIf="filterActive">
+    <button class="zoom btn btn-rounded btn-edit w-100" type="button"(click)='findProductByName(filterPost)'>
+      Buscar
+    </button>
+  </div>
+</div>
+
+<div class="table-responsive mt-2">
+  <table class="table table-sm">
+    <thead class="thead-dark">
+     <!--  <i class="fas fa-search float-right"></i> -->
+      <tr>
+        <th scope="col" class="text-center column1"  [routerLink]="['/product/form']"><i class="fas fa-plus-square plus" title="Añadir Producto"></i></th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Proveedor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <th scope="row" class="edit" title="Editar {{product.productName}}" [routerLink]="['/product/form', product.idProduct]"><i class="fas fa-pen-square"></i></th>
+        <td>{{product.productName}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.supplier.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <app-product-paginator *ngIf="productPaginator && searched == ''" [productPaginator]="productPaginator"></app-product-paginator>
+</div>
+

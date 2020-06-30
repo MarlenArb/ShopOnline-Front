@@ -1,3 +1,44 @@
-<p>
-  supplier works!
-</p>
+<div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Proveedores
+  <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
+</div>
+
+<div class="row mt-2" *ngIf="filterActive">
+  <div class="col-sm-10">
+    <div class="form-group input-group">
+      <input type="text" class="form-control" name="filter" [(ngModel)]="filterPost" placeholder="Buscar proveedor..."  style="font-family: georgia,garamond,serif; font-style: italic;">
+      <div class="input-group-append" title="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
+        <span class="input-group-text nofilter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2" *ngIf="filterActive">
+    <button class="zoom btn btn-rounded btn-edit w-100" type="button"(click)='findSupplierByName(filterPost)'>
+      Buscar
+    </button>
+  </div>
+</div>
+
+<div class="table-responsive mt-2">
+  <table class="table table-sm">
+    <thead class="thead-dark">
+     <!--  <i class="fas fa-search float-right"></i> -->
+      <tr>
+        <th scope="col" class="text-center column1"  [routerLink]="['/supplier/form']"><i class="fas fa-plus-square plus" title="Añadir Proveedor"></i></th>
+        <th scope="col">Nombre Proveedor</th>
+        <th scope="col">Nº Productos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let supplier of suppliers; let i = index">
+        <th scope="row" class="edit" title="Editar {{supplier.name}}" [routerLink]="['/supplier/form', supplier.idSupplier]"><i class="fas fa-pen-square"></i></th>
+        <td>{{supplier.name}}</td>
+        <td>{{supplier.numberProducts}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <app-supplier-paginator *ngIf="supplierPaginator && searched == ''" [supplierPaginator]="supplierPaginator"></app-supplier-paginator>
+</div>
+
+
+
+

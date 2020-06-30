@@ -1,3 +1,67 @@
-<p>
-  order works!
-</p>
+<div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Pedidos
+  <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
+</div>
+
+<div class="row mt-2" *ngIf="filterActive">
+  <div class="col-sm-10">
+    <div class="form-group input-group">
+      <input type="text" class="form-control" name="filter" [(ngModel)]="filterPost" placeholder="Buscar pedido..."  style="font-family: georgia,garamond,serif; font-style: italic;">
+      <div class="input-group-append" title="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
+        <span class="input-group-text nofilter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2" *ngIf="filterActive">
+    <button class="zoom btn btn-rounded btn-edit w-100" type="button"(click)='findOrderByRef(filterPost)'>
+      Buscar
+    </button>
+  </div>
+</div>
+
+<div class="table-responsive mt-2">
+  <table class="table table-sm">
+    <thead class="thead-dark">
+     <!--  <i class="fas fa-search float-right"></i> -->
+      <tr>
+        <th scope="col" class="text-center column1"  [routerLink]="['/order/form']"><i class="fas fa-plus-square plus" title="Añadir Tienda"></i></th>
+        <th scope="col">Ref.</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Tienda</th>
+        <th scope="col">Productos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders; let i = index">
+        <th scope="row" class="edit" title="Editar {{i}}" [routerLink]="['/order/form', order.idOrder]"><i class="fas fa-pen-square"></i></th>
+        <td>{{order.idOrder}}</td>
+        <td>{{order.client.clientName}}</td>
+        <td>{{order.orderDate | date: "dd/MM"}}</td>
+        <td>{{order.shop.shopName}}</td>
+        <td>{{order.products.length}} <i class="far fa-plus-square edit" title="Ver {{order.products.length}} productos" (click)='listProduct(order)' type="button"  data-toggle="modal" data-target="#exampleModalCenter"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <app-order-paginator *ngIf="orderPaginator && searched == ''" [orderPaginator]="orderPaginator"></app-order-paginator>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header card-header">
+        <h5 class="modal-title text-muted" id="modalTitle">Productos del pedido {{selectedOrder.idOrder}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div  *ngFor="let product of selectedOrder.products; let j = index">
+          {{j + 1 }}. {{product.productName}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

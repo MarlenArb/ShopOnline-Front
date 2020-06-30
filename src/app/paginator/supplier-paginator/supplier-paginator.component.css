@@ -1,0 +1,12 @@
+.page-item.active .page-link {
+  z-index: 3;
+  color: rgba(0, 0, 0, 0.425);
+  background-color: var(--main-bg-color);
+  border: solid 1px #00000048;
+  cursor: default;
+}
+
+
+.pagination > li > a {
+  border: 1px solid #00000050;
+}

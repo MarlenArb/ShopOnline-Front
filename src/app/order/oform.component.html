@@ -1,3 +1,70 @@
-<p>
-  oform works!
-</p>
+<form #orderForm="ngForm">
+  <div class="mt-2">
+
+    <div class="card">
+
+      <!--Header-->
+      <div class="card-header">
+        <span *ngIf="!order.idOrder" >Creando Pedido</span>
+        <span *ngIf="order.idOrder" >Editando Pedido</span>
+        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+          <span aria-hidden="true" class="">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="card-body">
+
+            <div class="form-group row">
+              <label for="clientname" class="col-form-label col-sm-2">Cliente</label>
+              <div class="input-group col-sm-10">
+                <select name="clientname" [compareWith]="compareClients" class="form-control" [(ngModel)]="order.client" #client_name="ngModel">
+                  <option *ngFor="let client of clients" [ngValue]="client">{{ client.clientName }}</option>
+                </select>
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="orderdate" class="col-form-label col-sm-2">Fecha</label>
+              <div class="input-group col-sm-10">
+                <input type="date" class="form-control" [(ngModel)]="order.orderDate" name="orderdate" required #order_date="ngModel">
+                <div class="input-group-append" *ngIf="order_date.invalid && (order_date.dirty || order_date.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="order_date.errors.required">X</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="shops" class="col-form-label col-sm-2">Tienda</label>
+              <div class="input-group col-sm-10">
+                <select name="shops" [compareWith]="compareShops" class="form-control" [(ngModel)]="order.shop">
+                  <option *ngFor="let shop of shops" [ngValue]="shop">{{ shop.shopName }}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="productos" class="col-form-label col-sm-2">Productos</label>
+              <div class="input-group col-sm-10">
+                <select multiple name="productos" [compareWith]="compareProducts" class="form-control" [(ngModel)]="order.products">
+                  <option *ngFor="let product of products" [ngValue]="product">{{ product.productName }}</option>
+                </select>
+              </div>
+            </div>
+
+      </div>
+
+      <!--Footer-->
+      <div class="card-footer">
+        <button *ngIf="order.idOrder" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifyOrder()' [disabled]="!orderForm.form.valid">Editar</button>
+        <button *ngIf="!order.idOrder" class="btn btn-edit ml-1" type="button" title="Crear Pedido" (click)='addOrder()' [disabled]="!orderForm.form.valid">Crear</button>
+        <button *ngIf="order.idOrder" class="btn btn-edit" type="button" title="Borrar Pedido" (click)='deleteOrder(order)'><i class="fas fa-trash"></i></button>
+      </div>
+
+    </div>
+
+
+  </div>
+  </form>
+
+

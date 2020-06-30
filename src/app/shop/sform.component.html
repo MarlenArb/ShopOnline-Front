@@ -1,3 +1,51 @@
-<p>
-  sform works!
-</p>
+<form #shopForm="ngForm">
+  <div class="mt-2">
+
+    <div class="card">
+
+      <!--Header-->
+      <div class="card-header">
+        <span *ngIf="!shop.idShop" >Creando Tienda</span>
+        <span *ngIf="shop.idShop" >Editando Tienda</span>
+        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+          <span aria-hidden="true" class="">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="card-body">
+
+            <div class="form-group row">
+              <label for="shopname" class="col-form-label col-sm-2">Nombre Tienda</label>
+              <div class="col-sm-10 input-group">
+                <input type="text" class="form-control" [(ngModel)]="shop.shopName" name="shopname" required minlength="3" #shop_name="ngModel">
+                <div class="input-group-append" *ngIf="shop_name.invalid && (shop_name.dirty || shop_name.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="shop_name.errors.required || shop_name.errors.minlength">X</span>
+                </div>
+              </div>
+            </div>
+      
+            <div class="form-group row">
+              <label for="cif" class="col-form-label col-sm-2">CIF</label>
+              <div class="input-group col-sm-10">
+                <input type="text" id="toggle" class="form-control" [(ngModel)]="shop.cif" name="lastname" minlength="3" required #cif_shop="ngModel">
+                <div class="input-group-append" *ngIf="cif_shop.invalid && (cif_shop.dirty || cif_shop.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="cif_shop.errors.required || cif_shop.errors.minlength">X</span>
+                </div>
+              </div>
+            </div>
+
+      </div>
+
+      <!--Footer-->
+      <div class="card-footer">
+        <button *ngIf="shop.idShop" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifyShop()' [disabled]="!shopForm.form.valid">Editar</button>
+        <button *ngIf="!shop.idShop" class="btn btn-edit ml-1" type="button" title="Crear Tienda" (click)='addShop()' [disabled]="!shopForm.form.valid">Crear</button>
+        <button *ngIf="shop.idShop" class="btn btn-edit" type="button" title="Borrar Tienda" (click)='deleteShop(shop)'><i class="fas fa-trash"></i></button>
+      </div>
+
+    </div>
+
+
+  </div>
+  </form>

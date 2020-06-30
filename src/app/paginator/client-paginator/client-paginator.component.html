@@ -1,3 +1,28 @@
-<p>
-  client-paginator works!
-</p>
+<ul *ngIf="pages?.length > 0" class="pagination">
+
+  <li [ngClass]="clientPaginator.number > 0?'page-item':'disabled page-item'">
+      <a class="page-link" [routerLink]="['/clients/page', clientPaginator.number - 1]">&laquo;</a>
+  </li>
+
+  <li [ngClass]="clientPaginator.first?'disabled page-item':'page-item'">
+      <a class="page-link" [routerLink]="['/clients/page', 0]">
+          Primera
+      </a>
+  </li>
+  
+  <li class="page-item" *ngFor="let page of pages" [ngClass]="page - 1 == clientPaginator.number?'active':''">
+      <span class="page-link" *ngIf="page - 1 == clientPaginator.number">{{ page }}</span>
+      <a class="page-link" *ngIf="page - 1 != clientPaginator.number" [routerLink]="['/clients/page', page - 1]">{{ page }}</a>
+  </li>
+
+  <li [ngClass]="clientPaginator.last?'disabled page-item':'page-item'">
+      <a class="page-link" [routerLink]="['/clients/page', clientPaginator.totalPages - 1]">
+          Última
+      </a>
+  </li>
+
+  <li [ngClass]="clientPaginator.number < clientPaginator.totalPages - 1?'page-item':'disabled page-item'">
+      <a class="page-link" [routerLink]="['/clients/page', clientPaginator.number + 1]">&raquo;</a>
+  </li>
+
+</ul>

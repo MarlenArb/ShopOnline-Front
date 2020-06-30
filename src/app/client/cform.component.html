@@ -1,3 +1,72 @@
-<p>
-  cform works!
-</p>
+<form #clientForm="ngForm">
+  <div class="mt-2">
+
+    <div class="card">
+
+      <!--Header-->
+      <div class="card-header">
+        <span *ngIf="!client.idClient" >Creando Cliente</span>
+        <span *ngIf="client.idClient" >Editando Cliente</span>
+        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+          <span aria-hidden="true" class="">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="card-body">
+
+            <div class="form-group row">
+              <label for="clientName" class="col-sm-2 col-form-label">Nombre Cliente</label>
+              <div class="input-group col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="client.clientName" name="clientNam" required minlength="3" #clientName="ngModel">
+                <div class="input-group-append" *ngIf="clientName.invalid && (clientName.dirty || clientName.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="clientName.errors.required || clientName.errors.minlength">X</span>
+                </div>
+              </div>
+            </div>
+
+      
+            <div class="form-group row">
+              <label for="age" class="col-form-label col-sm-2">Edad</label>
+              <div class="input-group col-sm-10">
+                <input type="number"  class="form-control" [(ngModel)]="client.age" name="age"required #age="ngModel">
+                <div class="input-group-append" *ngIf="age.invalid && (age.dirty || age.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="age.errors.required">X</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="gender" class="col-form-label col-sm-2">Género</label>
+              <div class="input-group col-sm-10">
+                <select name="gender" [compareWith]="compareGenders" class="form-control" [(ngModel)]="client.gender">
+                  <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="directionC" class="col-form-label col-sm-2">Dirección</label>
+              <div class="input-group col-sm-10">
+                <input type="text"  class="form-control" [(ngModel)]="client.direction" name="directionC" minlength="3" required #direct="ngModel">
+                <div class="input-group-append" *ngIf="direct.invalid && (direct.dirty || direct.touched)">
+                  <span class="input-group-text alert-danger" *ngIf="direct.errors.required || direct.errors.minlength">X</span>
+                </div>
+              </div>
+            </div>
+
+      </div>
+
+      <!--Footer-->
+      <div class="card-footer">
+        <button *ngIf="client.idClient" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifyClient()' [disabled]="!clientForm.form.valid">Editar</button>
+        <button *ngIf="!client.idClient" class="btn btn-edit ml-1" type="button"  title="Crear Cliente" (click)='addClient()' [disabled]="!clientForm.form.valid">Crear</button>
+        <button *ngIf="client.idClient" class="btn btn-edit" type="button"  title="Borrar Cliente" (click)='deleteClient(client)'><i class="fas fa-trash"></i></button>
+      </div>
+
+    </div>
+
+
+  </div>
+  </form>
+
