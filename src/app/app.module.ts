@@ -20,6 +20,16 @@ import { SuformComponent } from './supplier/suform.component';
 import { HomeComponent } from './home/home.component';
 import { OrderComponent } from './order/order.component';
 import { OformComponent } from './order/oform.component';
+import { ShopService } from './shop/shop.service';
+import { ClientService } from './client/client.service';
+import { SupplierService } from './supplier/supplier.service';
+import { ProductService } from './product/product.service';
+import { OrderService } from './order/order.service';
+import { ClientPaginatorComponent } from './paginator/client-paginator/client-paginator.component';
+import { ShopPaginatorComponent } from './paginator/shop-paginator/shop-paginator.component';
+import { OrderPaginatorComponent } from './paginator/order-paginator/order-paginator.component';
+import { SupplierPaginatorComponent } from './paginator/supplier-paginator/supplier-paginator.component';
+import { ProductPaginatorComponent } from './paginator/product-paginator/product-paginator.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -73,12 +83,20 @@ const routes: Routes = [
     SuformComponent,
     HomeComponent,
     OrderComponent,
-    OformComponent
+    OformComponent,
+    ClientPaginatorComponent,
+    ShopPaginatorComponent,
+    OrderPaginatorComponent,
+    SupplierPaginatorComponent,
+    ProductPaginatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
