@@ -34,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
 
 registerLocaleData(localeEs, 'es');
 
@@ -100,7 +101,8 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]

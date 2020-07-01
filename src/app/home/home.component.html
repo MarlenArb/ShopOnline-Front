@@ -1,13 +1,14 @@
-<div class="container text-center mt-sm-5 title">
+<div class="container text-center mt-sm-5 title" *ngIf="inHome">
 <h2>Bienvenido a:</h2>
   <h1>Shop-Online</h1>
-  <i class="fas fa-store"></i>
+  <i class="fas fa-store w-100"></i>
+  <button mat-button color="accent" (click)='inHome = false'>Ver Tiendas</button>
 </div>
 
 
 
-<mat-tab-group>
-  <mat-tab label="First"> Content 1 </mat-tab>
-  <mat-tab label="Second"> Content 2 </mat-tab>
-  <mat-tab label="Third"> Content 3 </mat-tab>
+
+<!--Cambiar la condicion-->
+<mat-tab-group *ngIf="inHome">
+  <mat-tab label="{{shop.shopName}}" *ngFor="let shop of shops"> Content 1 </mat-tab>
 </mat-tab-group>
