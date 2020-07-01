@@ -30,6 +30,7 @@ import { ShopPaginatorComponent } from './paginator/shop-paginator/shop-paginato
 import { OrderPaginatorComponent } from './paginator/order-paginator/order-paginator.component';
 import { SupplierPaginatorComponent } from './paginator/supplier-paginator/supplier-paginator.component';
 import { ProductPaginatorComponent } from './paginator/product-paginator/product-paginator.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(localeEs, 'es');
 
@@ -94,7 +95,8 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]
