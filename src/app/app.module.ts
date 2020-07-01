@@ -32,7 +32,8 @@ import { SupplierPaginatorComponent } from './paginator/supplier-paginator/suppl
 import { ProductPaginatorComponent } from './paginator/product-paginator/product-paginator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatSliderModule } from '@angular/material/slider';
+
+import {MatTabsModule} from '@angular/material/tabs';
 
 registerLocaleData(localeEs, 'es');
 
@@ -99,7 +100,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatTabsModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]
