@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {TreeNode} from 'primeng/api';
 import { ShopService } from '../shop/shop.service';
 import { Shop } from '../shop/shop';
+import { Product } from '../product/product';
+import { ProductService } from '../product/product.service';
 
 @Component({
   selector: 'app-shop-org-chart',
@@ -11,19 +13,26 @@ import { Shop } from '../shop/shop';
 export class ShopOrgChartComponent implements OnInit {
 
   shops: Shop[] = [];
+  products: Product[] = [];
 
-  constructor(private shopService: ShopService) { }
+  constructor(private shopService: ShopService,
+              private productService: ProductService) { }
 
 
 
   data: TreeNode[];
   tiendas: TreeNode[] = [];
+  productos: TreeNode[] = [];
   tienda: TreeNode = {label: 'hola'};
 
   ngOnInit() {
   this.shopService.getShops().subscribe (
       shops => this.shops = shops
     ); 
+
+    this.productService.getProducts().subscribe (
+      products => this.products = products
+    );
 
     //this.generateTree();
 /*     this.data = [{
@@ -63,17 +72,18 @@ fillShops(): void{
     console.log(this.shops[i].shopName);
     console.log("Tienda Label: " + this.tienda.label);
     console.log(this.tiendas);
-    this.tiendas.push({label:`${this.shops[i].shopName}`})
+   // this.tiendas.push({label:`${this.shops[i].shopName}`});
+    this.tiendas.push({label:`${this.shops[i].shopName}`, children: this.productos});
   }
-  //this.tiendas.push({label:`${this.shops[0].shopName}`}, {label:"2"})
-/*   this.shops.forEach(shop => {
-    this.tienda.label = `${shop.shopName}`;
-    this.tiendas.push(this.tienda);
-    console.log(shop.shopName);
-    console.log(this.tiendas);
-  }); */
-  console.log(this.tiendas);
-  console.log(this.shops.length)
+}
+
+fillProducts(): void{
+  console.log(this.products) ;
+  this.productos = [];
+  for(let i = 0; i<this.products.length; i++){
+    this.productos.push({label:`${this.products[i].productName}`});
+  }
+  console.log(this.productos);
 }
 
 generateTree(): void{
