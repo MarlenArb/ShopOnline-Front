@@ -68,19 +68,15 @@ fillShops(): void{
   this.tiendas = [];
   for(let i = 0; i<this.shops.length; i++){
     this.tienda.label = `${this.shops[i].shopName}`;
-   // this.tiendas.push(this.tienda);
-    console.log(this.shops[i].shopName);
-    console.log("Tienda Label: " + this.tienda.label);
-    console.log(this.tiendas);
-   // this.tiendas.push({label:`${this.shops[i].shopName}`});
     this.tiendas.push({label:`${this.shops[i].shopName}`, children: this.productos});
   }
+  console.log(this.tiendas);
 }
 
 fillProducts(): void{
   console.log(this.products) ;
   this.productos = [];
-  for(let i = 0; i<this.products.length; i++){
+  for(let i = 0; i<3; i++){ //el maximo es 3, sería this.products.length
     this.productos.push({label:`${this.products[i].productName}`});
   }
   console.log(this.productos);
