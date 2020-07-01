@@ -56,10 +56,21 @@ export class ShopOrgChartComponent implements OnInit {
 }
 
 fillShops(): void{
-  this.shops.forEach(shop => {
+  this.tiendas = [];
+  for(let i = 0; i<this.shops.length; i++){
+    this.tienda.label = `${this.shops[i].shopName}`;
+    this.tiendas.push(this.tienda);
+    console.log(this.shops[i].shopName);
+    console.log("Tienda Label: " + this.tienda.label);
+    console.log(this.tiendas);
+  }
+/*   this.shops.forEach(shop => {
     this.tienda.label = `${shop.shopName}`;
     this.tiendas.push(this.tienda);
-  });
+    console.log(shop.shopName);
+    console.log(this.tiendas);
+  }); */
+  console.log(this.tiendas);
   console.log(this.shops.length)
 }
 
