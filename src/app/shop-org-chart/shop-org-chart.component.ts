@@ -59,11 +59,13 @@ fillShops(): void{
   this.tiendas = [];
   for(let i = 0; i<this.shops.length; i++){
     this.tienda.label = `${this.shops[i].shopName}`;
-    this.tiendas.push(this.tienda);
+   // this.tiendas.push(this.tienda);
     console.log(this.shops[i].shopName);
     console.log("Tienda Label: " + this.tienda.label);
     console.log(this.tiendas);
+    this.tiendas.push({label:`${this.shops[i].shopName}`})
   }
+  //this.tiendas.push({label:`${this.shops[0].shopName}`}, {label:"2"})
 /*   this.shops.forEach(shop => {
     this.tienda.label = `${shop.shopName}`;
     this.tiendas.push(this.tienda);
