@@ -39,6 +39,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 
 import {ButtonModule} from 'primeng/button';
+import {OrganizationChartModule} from 'primeng/organizationchart';
 
 
 registerLocaleData(localeEs, 'es');
@@ -112,7 +113,8 @@ const routes: Routes = [
     MatButtonModule,
     MatListModule,
     MatIconModule,
-    ButtonModule
+    ButtonModule,
+    OrganizationChartModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]
