@@ -1,4 +1,12 @@
-<button pButton type="button" icon="pi pi-check" iconPos="left"></button>
-<p-button label="Click" icon="pi pi-check" iconPos="left"></p-button>
+<p-button label="fillShops" icon="pi pi-check" iconPos="left" (click)='fillShops()'></p-button>
+<p-button label="generateTree" icon="pi pi-check" iconPos="left" (click)='generateTree()'></p-button>
 
-<p-organizationChart [value]="data"></p-organizationChart>
+<p-organizationChart [value]="data"
+    styleClass="company">
+    <ng-template let-node pTemplate="leaf">
+        <span style="font-weight:bold">{{node.label}}</span>
+    </ng-template>
+    <ng-template let-node pTemplate="default">
+        {{node.label}}
+    </ng-template>
+</p-organizationChart>

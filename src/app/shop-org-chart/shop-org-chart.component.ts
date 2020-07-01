@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TreeNode} from 'primeng/api';
+import { ShopService } from '../shop/shop.service';
+import { Shop } from '../shop/shop';
 
 @Component({
   selector: 'app-shop-org-chart',
@@ -8,40 +10,65 @@ import {TreeNode} from 'primeng/api';
 })
 export class ShopOrgChartComponent implements OnInit {
 
-  constructor() { }
+  shops: Shop[] = [];
+
+  constructor(private shopService: ShopService) { }
 
 
 
   data: TreeNode[];
+  tiendas: TreeNode[] = [];
+  tienda: TreeNode = {label: 'hola'};
 
   ngOnInit() {
-      this.data = [{
-          label: 'Root',
-          children: [
-              {
-                  label: 'Child 1',
-                  children: [
-                      {
-                          label: 'Grandchild 1.1'
-                      },
-                      {
-                          label: 'Grandchild 1.2'
-                      }
-                  ]
-              },
-              {
-                  label: 'Child 2',
-                  children: [
-                      {
-                          label: 'Child 2.1'
-                      },
-                      {
-                          label: 'Child 2.2'
-                      }
-                  ]
-              }
-          ]
-      }];
+  this.shopService.getShops().subscribe (
+      shops => this.shops = shops
+    ); 
+
+    //this.generateTree();
+/*     this.data = [{
+        label: 'Tiendas',
+        children: [
+            {
+                label: 'Child 1',
+                children: [
+                    {
+                        label: 'Grandchild 1.1', type: 'leaf'
+                    },
+                    {
+                        label: 'Grandchild 1.2', type: 'leaf'
+                    }
+                ]
+            },
+            {
+                label: 'Child 2',
+                children: [
+                    {
+                        label: 'Child 2.1', type: 'leaf'
+                    },
+                    {
+                        label: 'Child 2.2', type: 'leaf'
+                    }
+                ]
+            }
+        ]
+    }]; */
+}
+
+fillShops(): void{
+  this.shops.forEach(shop => {
+    this.tienda.label = `${shop.shopName}`;
+    this.tiendas.push(this.tienda);
+  });
+  console.log(this.shops.length)
+}
+
+generateTree(): void{
+  this.data = [{
+    label: 'Tiendas',
+    children: this.tiendas
+}];
+
 }
 
 }
