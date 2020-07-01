@@ -31,7 +31,7 @@ import { OrderPaginatorComponent } from './paginator/order-paginator/order-pagin
 import { SupplierPaginatorComponent } from './paginator/supplier-paginator/supplier-paginator.component';
 import { ProductPaginatorComponent } from './paginator/product-paginator/product-paginator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ShopOrgChartComponent } from './shop-org-chart/shop-org-chart.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
@@ -40,12 +40,14 @@ import {MatIconModule} from '@angular/material/icon';
 
 import {ButtonModule} from 'primeng/button';
 
+
 registerLocaleData(localeEs, 'es');
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   {path: 'home', component: HomeComponent},
   {path: 'shop', component: ShopComponent},
+  {path: 'shoporg', component: ShopOrgChartComponent},
   {path: 'shop/form', component: SformComponent},
   {path: 'shop/form/:idShop', component: SformComponent},
   {path: 'client', component: ClientComponent},
@@ -97,7 +99,8 @@ const routes: Routes = [
     ShopPaginatorComponent,
     OrderPaginatorComponent,
     SupplierPaginatorComponent,
-    ProductPaginatorComponent
+    ProductPaginatorComponent,
+    ShopOrgChartComponent
   ],
   imports: [
     BrowserModule,
