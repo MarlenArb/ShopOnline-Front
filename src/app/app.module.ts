@@ -40,6 +40,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 import {ButtonModule} from 'primeng/button';
 import {OrganizationChartModule} from 'primeng/organizationchart';
@@ -124,7 +125,8 @@ const routes: Routes = [
     MatStepperModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]
