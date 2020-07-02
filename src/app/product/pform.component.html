@@ -18,10 +18,9 @@
             <div class="form-group row">
               <label for="productname" class="col-form-label col-sm-2">Nombre Producto</label>
               <div class="input-group col-sm-10">
-                <input type="text" class="form-control" [(ngModel)]="product.productName" name="productname" required minlength="3" #product_name="ngModel">
-                <div class="input-group-append" *ngIf="product_name.invalid && (product_name.dirty || product_name.touched)">
-                  <span class="input-group-text alert-danger" *ngIf="product_name.errors.required || product_name.errors.minlength">X</span>
-                </div>
+                <select name="productname" [compareWith]="compareTypes" class="form-control" [(ngModel)]="product.productName">
+                  <option *ngFor="let productType of productsTypes" [ngValue]="productType">{{productType}}</option>
+                </select>
               </div>
             </div>
       

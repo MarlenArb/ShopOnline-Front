@@ -16,6 +16,9 @@ export class PformComponent implements OnInit {
   public product: Product = new Product();
   public suppliers: Supplier[] = [];
 
+  public productsTypes: String[] = ["Camiseta", "Jeans", "Chaqueta", "Bufanda", "Zapatos", "Falda", "Vestido",
+  "Diadema"];
+
   constructor(public productService: ProductService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -98,6 +101,10 @@ export class PformComponent implements OnInit {
 
   public compareSuppliers(o1: Supplier, o2: Supplier): boolean {
     return o1 == null || o2 == null ? false : o1.name == o2.name;
+  }
+
+  public compareTypes(o1: string, o2: string): boolean {
+    return o1 == null || o2 == null ? false : o1 == o2;
   }
 
 }
