@@ -68,4 +68,10 @@ export class MakeOrdersComponent implements OnInit {
     console.log("Productos seleccionados: " + this.productsSelected.length);
     console.log("Importe: " + this.totalPrice + " €");
   }
+
+  resetearStepper(): void{
+    this.order = new Order;
+    this.productsSelected = [];
+    this.totalPrice = 0;
+  }
 }
