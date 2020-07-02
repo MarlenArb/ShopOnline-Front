@@ -2,3 +2,7 @@
   background-color: #bb0057 !important;
   color: #fff;
 }
+
+#product-img{
+  opacity: 0.5;
+}
