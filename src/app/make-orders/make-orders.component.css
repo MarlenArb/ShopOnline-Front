@@ -6,3 +6,7 @@
 #product-img{
   opacity: 0.5;
 }
+
+.container{
+  overflow-y: auto !important;
+}
