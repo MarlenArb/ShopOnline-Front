@@ -65,6 +65,7 @@ export class MakeOrdersComponent implements OnInit {
     for(let i = 0; i<this.productsSelected.length; i++){
       this.totalPrice = this.totalPrice + this.productsSelected[i].price;
     }
-    console.log(this.productsSelected);
+    console.log("Productos seleccionados: " + this.productsSelected.length);
+    console.log("Importe: " + this.totalPrice + " €");
   }
 }

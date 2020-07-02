@@ -1,8 +1,4 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>
-
-<mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper [linear]="false" #stepper class="mt-3">
   <!--Primer paso-->
   <mat-step [stepControl]="firstFormGroup" label="Step 1" state="person">
     <form [formGroup]="firstFormGroup">
@@ -10,15 +6,17 @@
   
           <mat-form-field appearance="fill">
             <mat-label>Cliente</mat-label>
-            <mat-select [(ngModel)]="order.client" name="cliente" [ngModelOptions]="{standalone: true}">
+           <mat-select [(ngModel)]="order.client" name="cliente"  [ngModelOptions]="{standalone: true}" required>
               <mat-option *ngFor="let client of clients" [value]="client">
                 {{client.clientName}}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
+
       <div>
-        <button mat-button matStepperNext class="stepper_btn">Siguiente</button>
+        <button *ngIf="order.client" mat-button matStepperNext class="stepper_btn">Siguiente</button>
+        <button *ngIf="!order.client" mat-button matStepperNext disabled class="stepper_btn">Siguiente</button>
       </div>
       
     </form>
@@ -31,7 +29,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Tienda</mat-label>
-        <mat-select [(ngModel)]="order.shop" name="tienda" [ngModelOptions]="{standalone: true}">
+        <mat-select [(ngModel)]="order.shop" name="tienda" [ngModelOptions]="{standalone: true}" required>
           <mat-option *ngFor="let shop of shops" [value]="shop">
             {{shop.shopName}}
           </mat-option>
@@ -40,7 +38,8 @@
 
       <div>
         <button mat-button matStepperPrevious class="stepper_btn">Volver</button>
-        <button mat-button matStepperNext class="stepper_btn">Siguiente</button>
+        <button *ngIf="order.shop" mat-button matStepperNext class="stepper_btn">Siguiente</button>
+        <button *ngIf="!order.shop" mat-button matStepperNext disabled class="stepper_btn">Siguiente</button>
       </div>
     </form>
   </mat-step>
@@ -50,8 +49,8 @@
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Seleccione los productos</ng-template>
 
-      <p-pickList [responsive]="true" [source]="products" [target]="productsSelected">
-        <ng-template let-product pTemplate="item">
+      <p-pickList [responsive]="true" [source]="products" [target]="productsSelected" (onMoveToTarget)="printProductsSelected()">
+        <ng-template let-product pTemplate="product">
             <div class="ui-helper-clearfix">
                 <img src="/assets/img/products/{{product.productName.toLowerCase()}}.ico" style="display:inline-block;margin:2px 0 2px 2px" width="40" id="product-img">
                 <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{product.description}} - {{product.price}} €</div>
@@ -61,7 +60,8 @@
 
       <div>
         <button mat-button matStepperPrevious class="stepper_btn">Volver</button>
-        <button mat-button matStepperNext class="stepper_btn" (click)='printProductsSelected()'>Siguiente</button>
+        <button *ngIf="productsSelected.length > 0" mat-button matStepperNext class="stepper_btn">Siguiente</button>
+        <button *ngIf="productsSelected.length <= 0" mat-button matStepperNext disabled class="stepper_btn">Siguiente</button>
       </div>
     </form>
   </mat-step>
