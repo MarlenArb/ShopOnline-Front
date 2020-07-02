@@ -6,6 +6,8 @@ import { ClientService } from '../client/client.service';
 import { Order } from '../order/order';
 import { Shop } from '../shop/shop';
 import { ShopService } from '../shop/shop.service';
+import { Product } from '../product/product';
+import { ProductService } from '../product/product.service';
 
 @Component({
   selector: 'app-make-orders',
@@ -22,12 +24,14 @@ export class MakeOrdersComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  public clients: Client[];
-  public shops: Shop[];
+  public clients: Client[] = [];
+  public shops: Shop[] = [];
   public order: Order = new Order;
+  public products: Product[] = [];
+  public productsSelected: Product[] = [];
 
   constructor(private _formBuilder: FormBuilder, private clientService: ClientService,
-              private shopService: ShopService) {}
+              private shopService: ShopService, private productService: ProductService) {}
 
   ngOnInit() {
     this.loadStepper();
@@ -36,6 +40,10 @@ export class MakeOrdersComponent implements OnInit {
     );
     this.shopService.getShops().subscribe (
       shops => this.shops = shops
+    );
+
+    this.productService.getProducts().subscribe (
+      products => this.products = products
     );
   }
 

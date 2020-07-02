@@ -9,7 +9,7 @@
       <ng-template matStepLabel>Eliga el cliente</ng-template>
   
           <mat-form-field appearance="fill">
-            <mat-label>Juana</mat-label>
+            <mat-label>Cliente</mat-label>
             <mat-select [(ngModel)]="order.client" name="cliente" [ngModelOptions]="{standalone: true}">
               <mat-option *ngFor="let client of clients" [value]="client">
                 {{client.clientName}}
@@ -30,7 +30,7 @@
       <ng-template matStepLabel>Eliga la tienda</ng-template>
 
       <mat-form-field appearance="fill">
-        <mat-label>Asos</mat-label>
+        <mat-label>Tienda</mat-label>
         <mat-select [(ngModel)]="order.shop" name="tienda" [ngModelOptions]="{standalone: true}">
           <mat-option *ngFor="let shop of shops" [value]="shop">
             {{shop.shopName}}
@@ -50,7 +50,14 @@
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Seleccione los productos</ng-template>
 
-
+      <p-pickList [responsive]="true" [source]="products" [target]="productsSelected">
+        <ng-template let-product pTemplate="item">
+            <div class="ui-helper-clearfix">
+                <!-- <img src="assets/showcase/images/demo/car/{{product.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48"> -->
+                <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{product.productName}} - {{product.price}}</div>
+            </div>
+        </ng-template>
+      </p-pickList>
 
       <div>
         <button mat-button matStepperPrevious class="stepper_btn">Volver</button>

@@ -45,6 +45,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {ButtonModule} from 'primeng/button';
 import {OrganizationChartModule} from 'primeng/organizationchart';
 import { MakeOrdersComponent } from './make-orders/make-orders.component';
+import {PickListModule} from 'primeng/picklist';
 
 
 registerLocaleData(localeEs, 'es');
@@ -126,7 +127,8 @@ const routes: Routes = [
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    PickListModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]
