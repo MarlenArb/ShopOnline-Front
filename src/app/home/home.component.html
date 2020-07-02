@@ -1,21 +1,15 @@
-<div class="container text-center mt-sm-5 title" *ngIf="inHome">
+<div class="container text-center mt-5 title" *ngIf="inHome">
 <h2>Bienvenido a:</h2>
   <h1>Shop-Online</h1>
   <i class="fas fa-store w-100"></i>
-  <button mat-button color="accent" (click)='inHome = false'>Realizar Pedido</button>
+  <button mat-button color="accent" routerLink="/makeorder">Realizar Pedido</button> <br>
+  <button mat-button color="accent" routerLink="/shoporg">Ver organización de tiendas</button>
 </div>
 
-<button pButton type="button" label="Click" ></button>
-<p-button label="Click" ></p-button>
-
-
-<!--Cambiar la condicion-->
+<!-- 
 <mat-tab-group *ngIf="!inHome">
   <mat-tab label="{{shop.shopName}}" *ngFor="let shop of shops"> 
 
-<!--     <ul #products *ngFor="let product of products">
-      <li>{{product.productName}}</li>
-    </ul> -->
 
     <mat-selection-list #shops>
       <mat-list-option *ngFor="let product of products" [value]="product" title="{{product.price}} €">
@@ -31,4 +25,4 @@
 
 
   </mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->
