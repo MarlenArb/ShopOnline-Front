@@ -8,6 +8,8 @@ import { Shop } from '../shop/shop';
 import { ShopService } from '../shop/shop.service';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
+import { OrderService } from '../order/order.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-make-orders',
@@ -32,7 +34,8 @@ export class MakeOrdersComponent implements OnInit {
   public totalPrice: number = 0;
 
   constructor(private _formBuilder: FormBuilder, private clientService: ClientService,
-              private shopService: ShopService, private productService: ProductService) {}
+              private shopService: ShopService, private productService: ProductService,
+              private orderService: OrderService) {}
 
   ngOnInit() {
     this.loadStepper();
@@ -73,5 +76,15 @@ export class MakeOrdersComponent implements OnInit {
     this.order = new Order;
     this.productsSelected = [];
     this.totalPrice = 0;
+  }
+
+    //Añadir pedido
+  public addOrder(): void {
+    this.orderService.addOrder(this.order).subscribe(
+      order => {
+        Swal.fire('Nuevo pedido', `Nuevo pedido realizado con éxito!`, 'success');
+        this.resetearStepper();
+      }
+    )
   }
 }
