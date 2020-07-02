@@ -4,7 +4,7 @@
 
 <mat-vertical-stepper [linear]="isLinear" #stepper>
   <!--Primer paso-->
-  <mat-step [stepControl]="firstFormGroup" label="Step 2" state="person">
+  <mat-step [stepControl]="firstFormGroup" label="Step 1" state="person">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Eliga el cliente</ng-template>
   
@@ -18,7 +18,7 @@
           </mat-form-field>
 
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext class="stepper_btn">Siguiente</button>
       </div>
       
     </form>
@@ -39,8 +39,8 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious class="stepper_btn">Volver</button>
+        <button mat-button matStepperNext class="stepper_btn">Siguiente</button>
       </div>
     </form>
   </mat-step>
@@ -53,8 +53,8 @@
 
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious class="stepper_btn">Volver</button>
+        <button mat-button matStepperNext class="stepper_btn">Siguiente</button>
       </div>
     </form>
   </mat-step>
@@ -67,8 +67,8 @@
     <span *ngIf="order.products">Número de productos: {{order.products.length}}</span>
     <span *ngIf="order.products">Importe Total: {{order.products.length}} €</span>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button matStepperPrevious class="stepper_btn">Volver</button>
+      <button mat-button class="stepper_btn" (click)="stepper.reset()">Resetear</button>
     </div>
   </mat-step>
 </mat-vertical-stepper>

@@ -96,5 +96,11 @@ a {
 a:hover {
   color: black;
 }
+
+.stepper_btn{
+  background-color: var(--main-bg-color);
+  margin-left: 5px !important;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
