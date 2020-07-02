@@ -33,6 +33,8 @@ export class MakeOrdersComponent implements OnInit {
   public productsSelected: Product[] = [];
   public totalPrice: number = 0;
 
+  today: Date = new Date;
+
   constructor(private _formBuilder: FormBuilder, private clientService: ClientService,
               private shopService: ShopService, private productService: ProductService,
               private orderService: OrderService) {}
@@ -78,8 +80,15 @@ export class MakeOrdersComponent implements OnInit {
     this.totalPrice = 0;
   }
 
+  getDate(): void{
+    this.today.getDate() + "/" + (this.today.getMonth()) + "/" + this.today.getFullYear();
+    this.order.orderDate = this.today;
+    console.log(this.today);
+  }
+
     //Añadir pedido
   public addOrder(): void {
+    this.getDate();
     this.orderService.addOrder(this.order).subscribe(
       order => {
         Swal.fire('Nuevo pedido', `Nuevo pedido realizado con éxito!`, 'success');
