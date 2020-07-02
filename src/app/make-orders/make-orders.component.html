@@ -4,9 +4,9 @@
 
 <mat-vertical-stepper [linear]="isLinear" #stepper>
   <!--Primer paso-->
-  <mat-step [stepControl]="firstFormGroup">
+  <mat-step [stepControl]="firstFormGroup" label="Step 2" state="person">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel> <i class="fas fa-user-alt"></i> Eliga el cliente</ng-template>
+      <ng-template matStepLabel>Eliga el cliente</ng-template>
   
           <mat-form-field appearance="fill">
             <mat-label>Juana</mat-label>
@@ -25,9 +25,9 @@
   </mat-step>
 
   <!--Segundo Paso-->
-  <mat-step [stepControl]="secondFormGroup">
+  <mat-step [stepControl]="secondFormGroup" label="Step 2" state="store">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel> <i class="fas fa-store-alt"></i> Eliga la tienda</ng-template>
+      <ng-template matStepLabel>Eliga la tienda</ng-template>
 
       <mat-form-field appearance="fill">
         <mat-label>Asos</mat-label>
@@ -46,9 +46,9 @@
   </mat-step>
 
   <!--Tercer Paso-->
-  <mat-step [stepControl]="thirdFormGroup">
+  <mat-step [stepControl]="thirdFormGroup" label="Step 3" state="format_list_numbered">
     <form [formGroup]="thirdFormGroup">
-      <ng-template matStepLabel> <i class="fas fa-list-ol"></i> Seleccione los productos</ng-template>
+      <ng-template matStepLabel>Seleccione los productos</ng-template>
 
 
 
@@ -60,7 +60,7 @@
   </mat-step>
 
   <!--Cuarto y último paso-->
-  <mat-step>
+  <mat-step label="Step 4" state="done_outline">
     <ng-template matStepLabel> Finalizar Pedido</ng-template>
     <p *ngIf="order.client">Cliente: {{order.client.clientName}}</p>
     <p *ngIf="order.shop">Tienda: {{order.shop.shopName}}</p>

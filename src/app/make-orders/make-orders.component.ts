@@ -10,7 +10,10 @@ import { ShopService } from '../shop/shop.service';
 @Component({
   selector: 'app-make-orders',
   templateUrl: './make-orders.component.html',
-  styleUrls: ['./make-orders.component.css']
+  styleUrls: ['./make-orders.component.css'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
 export class MakeOrdersComponent implements OnInit {
 
