@@ -6,5 +6,7 @@ export class Product {
   productName: String;
   description: String;
   supplier: Supplier;
+  isInOrder: boolean;
+  numberOrders: number;
 
 }

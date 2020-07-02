@@ -36,7 +36,9 @@
         <td>{{product.productName}}</td>
         <td>{{product.price}}</td>
         <td>{{product.description}}</td>
-        <td>{{product.supplier.name}}</td>
+        <td>{{product.supplier.name}}
+          <span *ngIf="product.numberOrders!=0 && product.numberOrders" class="float-right" title="Pedidos: {{product.numberOrders}}"><i class="fas fa-lock lock"></i></span>
+        </td>
       </tr>
     </tbody>
   </table>
