@@ -54,14 +54,14 @@
         <ng-template let-product pTemplate="item">
             <div class="ui-helper-clearfix">
                 <!-- <img src="assets/showcase/images/demo/car/{{product.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48"> -->
-                <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{product.productName}} - {{product.price}}</div>
+                <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{product.productName}} - {{product.price}} €</div>
             </div>
         </ng-template>
       </p-pickList>
 
       <div>
         <button mat-button matStepperPrevious class="stepper_btn">Volver</button>
-        <button mat-button matStepperNext class="stepper_btn">Siguiente</button>
+        <button mat-button matStepperNext class="stepper_btn" (click)='printProductsSelected()'>Siguiente</button>
       </div>
     </form>
   </mat-step>
@@ -69,10 +69,12 @@
   <!--Cuarto y último paso-->
   <mat-step label="Step 4" state="done_outline">
     <ng-template matStepLabel> Finalizar Pedido</ng-template>
-    <p *ngIf="order.client">Cliente: {{order.client.clientName}}</p>
-    <p *ngIf="order.shop">Tienda: {{order.shop.shopName}}</p>
-    <span *ngIf="order.products">Número de productos: {{order.products.length}}</span>
-    <span *ngIf="order.products">Importe Total: {{order.products.length}} €</span>
+    <div class="row">
+      <div class="col-sm-6" *ngIf="order.client">Cliente: {{order.client.clientName}}</div>
+      <div class="col-sm-6" *ngIf="order.shop">Tienda: {{order.shop.shopName}}</div>
+      <div class="col-sm-6" *ngIf="order.products">Número de productos: {{order.products.length}}</div>
+      <div class="col-sm-6 mb-4" *ngIf="order.products">Importe Total: {{totalPrice}} €</div>
+   </div>
     <div>
       <button mat-button matStepperPrevious class="stepper_btn">Volver</button>
       <button mat-button class="stepper_btn" (click)="stepper.reset()">Resetear</button>

@@ -29,6 +29,7 @@ export class MakeOrdersComponent implements OnInit {
   public order: Order = new Order;
   public products: Product[] = [];
   public productsSelected: Product[] = [];
+  public totalPrice: number = 0;
 
   constructor(private _formBuilder: FormBuilder, private clientService: ClientService,
               private shopService: ShopService, private productService: ProductService) {}
@@ -59,4 +60,11 @@ export class MakeOrdersComponent implements OnInit {
     });
   }
 
+  printProductsSelected(): void{
+    this.order.products = this.productsSelected;
+    for(let i = 0; i<this.productsSelected.length; i++){
+      this.totalPrice = this.totalPrice + this.productsSelected[i].price;
+    }
+    console.log(this.productsSelected);
+  }
 }
