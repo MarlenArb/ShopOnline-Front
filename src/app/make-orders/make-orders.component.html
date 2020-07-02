@@ -61,8 +61,11 @@
 
   <!--Cuarto y último paso-->
   <mat-step>
-    <ng-template matStepLabel> <i class="fas fa-list-ol"></i> Selecciona los productos</ng-template>
-    <p>You are now done.</p>
+    <ng-template matStepLabel> Finalizar Pedido</ng-template>
+    <p *ngIf="order.client">Cliente: {{order.client.clientName}}</p>
+    <p *ngIf="order.shop">Tienda: {{order.shop.shopName}}</p>
+    <span *ngIf="order.products">Número de productos: {{order.products.length}}</span>
+    <span *ngIf="order.products">Importe Total: {{order.products.length}} €</span>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
