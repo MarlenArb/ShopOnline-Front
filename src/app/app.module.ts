@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
-import {FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
@@ -37,9 +37,13 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
 
 import {ButtonModule} from 'primeng/button';
 import {OrganizationChartModule} from 'primeng/organizationchart';
+import { MakeOrdersComponent } from './make-orders/make-orders.component';
 
 
 registerLocaleData(localeEs, 'es');
@@ -58,6 +62,7 @@ const routes: Routes = [
   {path: 'product/form', component: PformComponent},
   {path: 'product/form/:idProduct', component: PformComponent},
   {path: 'order', component: OrderComponent},
+  {path: 'makeorder', component: MakeOrdersComponent},
   {path: 'order/form', component: OformComponent},
   {path: 'order/form/:idOrder', component: OformComponent},
   {path: 'supplier', component: SupplierComponent},
@@ -101,7 +106,8 @@ const routes: Routes = [
     OrderPaginatorComponent,
     SupplierPaginatorComponent,
     ProductPaginatorComponent,
-    ShopOrgChartComponent
+    ShopOrgChartComponent,
+    MakeOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +120,11 @@ const routes: Routes = [
     MatListModule,
     MatIconModule,
     ButtonModule,
-    OrganizationChartModule
+    OrganizationChartModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]
