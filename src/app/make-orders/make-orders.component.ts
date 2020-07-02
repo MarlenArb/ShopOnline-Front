@@ -81,7 +81,7 @@ export class MakeOrdersComponent implements OnInit {
   }
 
   getDate(): void{
-    this.today.getDate() + "/" + (this.today.getMonth()) + "/" + this.today.getFullYear();
+    //this.today.getDate() + "/" + (this.today.getMonth()) + "/" + this.today.getFullYear();
     this.order.orderDate = this.today;
     console.log(this.today);
   }
