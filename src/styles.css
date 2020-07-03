@@ -41,6 +41,17 @@ body{
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.418);
 }
 
+.btn-edit-disabled{
+  background-color: var(--main-bg-color) !important;
+  float: right;
+  border: 3px solid white !important;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.616) !important;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.418);
+  cursor: default !important;
+}
+
+
 .lupa{
   background-color: white;
   color: black;

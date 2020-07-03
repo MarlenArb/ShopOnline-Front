@@ -50,7 +50,7 @@
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Seleccione los productos</ng-template>
 
-      <p-pickList [responsive]="true" [source]="products" [target]="productsSelected" (onMoveToTarget)="printProductsSelected()">
+      <p-pickList [responsive]="true" [source]="products" [target]="productsSelected" (onMoveToTarget)="printProductsSelected()" (onMoveToSource)="printProductsSelected()">
         <ng-template let-product pTemplate="product">
             <div class="ui-helper-clearfix">
                 <img src="/assets/img/products/{{product.productName.toLowerCase()}}.ico" style="display:inline-block;margin:2px 0 2px 2px" width="40" id="product-img">

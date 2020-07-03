@@ -67,6 +67,7 @@ export class MakeOrdersComponent implements OnInit {
 
   printProductsSelected(): void{
     this.order.products = this.productsSelected;
+    this.totalPrice = 0;
     for(let i = 0; i<this.productsSelected.length; i++){
       this.totalPrice = this.totalPrice + this.productsSelected[i].price;
     }
