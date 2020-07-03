@@ -24,6 +24,7 @@ export class ShopOrgChartComponent implements OnInit {
   tiendas: TreeNode[] = [];
   productos: TreeNode[] = [];
   tienda: TreeNode = {label: 'hola'};
+  viewButton: boolean = true;
 
   ngOnInit() {
   this.shopService.getShops().subscribe (
@@ -33,35 +34,6 @@ export class ShopOrgChartComponent implements OnInit {
     this.productService.getProducts().subscribe (
       products => this.products = products
     );
-
-    //this.generateTree();
-/*     this.data = [{
-        label: 'Tiendas',
-        children: [
-            {
-                label: 'Child 1',
-                children: [
-                    {
-                        label: 'Grandchild 1.1', type: 'leaf'
-                    },
-                    {
-                        label: 'Grandchild 1.2', type: 'leaf'
-                    }
-                ]
-            },
-            {
-                label: 'Child 2',
-                children: [
-                    {
-                        label: 'Child 2.1', type: 'leaf'
-                    },
-                    {
-                        label: 'Child 2.2', type: 'leaf'
-                    }
-                ]
-            }
-        ]
-    }]; */
 }
 
 fillShops(): void{
@@ -70,19 +42,22 @@ fillShops(): void{
     this.tienda.label = `${this.shops[i].shopName}`;
     this.tiendas.push({label:`${this.shops[i].shopName}`, children: this.productos});
   }
-  console.log(this.tiendas);
+ // console.log(this.tiendas);
 }
 
 fillProducts(): void{
-  console.log(this.products) ;
+  //console.log(this.products) ;
   this.productos = [];
   for(let i = 0; i<this.products.length; i++){ //el maximo es 3, sería this.products.length
     this.productos.push({label:`${this.products[i].productName}`});
   }
-  console.log(this.productos);
+  //console.log(this.productos);
 }
 
 generateTree(): void{
+  this.viewButton = false;
+  this.fillProducts();
+  this.fillShops();
   this.data = [{
     label: 'Tiendas',
     children: this.tiendas

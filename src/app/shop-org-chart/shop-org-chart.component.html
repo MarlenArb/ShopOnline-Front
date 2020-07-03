@@ -1,9 +1,9 @@
-<p-button label="fillProducts" icon="pi pi-check" iconPos="left" (click)='fillProducts()'></p-button>
-<p-button label="fillShops" icon="pi pi-check" iconPos="left" (click)='fillShops()'></p-button>
-<p-button label="generateTree" icon="pi pi-check" iconPos="left" (click)='generateTree()'></p-button>
+<!-- <p-button label="fillProducts" icon="pi pi-check" iconPos="left" (click)='fillProducts()'></p-button>
+<p-button label="fillShops" icon="pi pi-check" iconPos="left" (click)='fillShops()'></p-button> -->
+<p-button *ngIf="viewButton" label="Ver" (click)='generateTree()'></p-button>
 
-<div class="d-sm-none">hide on sm and wider screens</div>
-<div class="d-none d-sm-block">hide on screens smaller than sm</div>
+<!-- <div class="d-sm-none">hide on sm and wider screens</div>
+<div class="d-none d-sm-block">hide on screens smaller than sm</div> -->
 
 <!-- <p-organizationChart [value]="data" preserveSpace="false" layout="horizontal"
     styleClass="company">
@@ -14,5 +14,6 @@
         {{node.label}}
     </ng-template>
 </p-organizationChart> -->
+<div class="pretree"></div>
 
-<p-tree [value]="data" layout="horizontal"  class="mb-100"></p-tree>
+<p-tree [value]="data" layout="horizontal"  class="tree"></p-tree>
