@@ -76,7 +76,7 @@ fillShops(): void{
 fillProducts(): void{
   console.log(this.products) ;
   this.productos = [];
-  for(let i = 0; i<3; i++){ //el maximo es 3, sería this.products.length
+  for(let i = 0; i<this.products.length; i++){ //el maximo es 3, sería this.products.length
     this.productos.push({label:`${this.products[i].productName}`});
   }
   console.log(this.productos);

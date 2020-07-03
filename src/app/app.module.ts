@@ -46,6 +46,8 @@ import {ButtonModule} from 'primeng/button';
 import {OrganizationChartModule} from 'primeng/organizationchart';
 import { MakeOrdersComponent } from './make-orders/make-orders.component';
 import {PickListModule} from 'primeng/picklist';
+import {TreeModule} from 'primeng/tree';
+import { OrgChartComponent } from './org-chart/org-chart.component';
 
 
 registerLocaleData(localeEs, 'es');
@@ -53,6 +55,7 @@ registerLocaleData(localeEs, 'es');
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   {path: 'home', component: HomeComponent},
+  {path: 'orgchart', component: OrgChartComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'shoporg', component: ShopOrgChartComponent},
   {path: 'shop/form', component: SformComponent},
@@ -109,7 +112,8 @@ const routes: Routes = [
     SupplierPaginatorComponent,
     ProductPaginatorComponent,
     ShopOrgChartComponent,
-    MakeOrdersComponent
+    MakeOrdersComponent,
+    OrgChartComponent
   ],
   imports: [
     BrowserModule,
@@ -128,7 +132,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
-    PickListModule
+    PickListModule,
+    TreeModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
   bootstrap: [AppComponent]

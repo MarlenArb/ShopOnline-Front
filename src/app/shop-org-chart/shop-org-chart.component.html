@@ -2,7 +2,10 @@
 <p-button label="fillShops" icon="pi pi-check" iconPos="left" (click)='fillShops()'></p-button>
 <p-button label="generateTree" icon="pi pi-check" iconPos="left" (click)='generateTree()'></p-button>
 
-<p-organizationChart [value]="data"
+<div class="d-sm-none">hide on sm and wider screens</div>
+<div class="d-none d-sm-block">hide on screens smaller than sm</div>
+
+<!-- <p-organizationChart [value]="data" preserveSpace="false" layout="horizontal"
     styleClass="company">
     <ng-template let-node pTemplate="leaf">
         <span style="font-weight:bold">{{node.label}}</span>
@@ -10,4 +13,6 @@
     <ng-template let-node pTemplate="default">
         {{node.label}}
     </ng-template>
-</p-organizationChart>
+</p-organizationChart> -->
+
+<p-tree [value]="data" layout="horizontal"  class="mb-100"></p-tree>
