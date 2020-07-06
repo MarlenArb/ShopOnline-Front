@@ -40,7 +40,7 @@ fillShops(): void{
   this.tiendas = [];
   for(let i = 0; i<this.shops.length; i++){
     this.tienda.label = `${this.shops[i].shopName}`;
-    this.tiendas.push({label:`${this.shops[i].shopName}`, children: this.productos});
+    this.tiendas.push({label:`${this.shops[i].shopName}`, type: 'leaf', children: this.productos});
   }
  // console.log(this.tiendas);
 }
@@ -48,8 +48,8 @@ fillShops(): void{
 fillProducts(): void{
   //console.log(this.products) ;
   this.productos = [];
-  for(let i = 0; i<this.products.length; i++){ //el maximo es 3, sería this.products.length
-    this.productos.push({label:`${this.products[i].productName}`});
+  for(let i = 0; i<this.products.length; i++){ 
+    this.productos.push({label:`${this.products[i].productName}`, type: 'leaf'});
   }
   //console.log(this.productos);
 }
@@ -59,7 +59,11 @@ generateTree(): void{
   this.fillProducts();
   this.fillShops();
   this.data = [{
-    label: 'Tiendas',
+    //expandedIcon: "pi pi-folder-open",
+   label: "Tiendas",
+   type: "root",
+   //icon: "pi pi-shopping-cart",
+   styleClass: "company",
     children: this.tiendas
 }];
 
