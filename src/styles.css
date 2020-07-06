@@ -15,6 +15,16 @@ body{
   font-family: 'PT Serif', serif;
 }
 
+body .ui-tree .ui-tree-container .ui-treenode .ui-treenode-content {
+  padding: 0;
+  border: 1px solid transparent;
+  background-color: rgba(230, 214, 223, 0.329) !important;
+}
+
+body .ui-tree:hover .ui-tree-container:hover .ui-treenode:hover .ui-treenode-content:hover {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
 .plus:hover, .edit:hover{
   transform: scale(1.2);
   cursor: pointer;

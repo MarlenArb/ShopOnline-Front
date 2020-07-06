@@ -22,6 +22,8 @@ export class ShopOrgChartComponent implements OnInit {
 
   data: TreeNode[];
   productosNode: TreeNode[] = [];
+  tiendasYproductos: TreeNode[] = [];
+  allTree: TreeNode[] = [];
   tiendas: TreeNode[] = [];
   productos: TreeNode[] = [];
   tienda: TreeNode = {label: 'hola'};
@@ -42,6 +44,7 @@ fillShops(): void{
   for(let i = 0; i<this.shops.length; i++){
     this.tienda.label = `${this.shops[i].shopName}`;
     this.tiendas.push({label:`${this.shops[i].shopName}`, type: 'shop'});
+    this.tiendasYproductos.push({label:`${this.shops[i].shopName}`, children: this.productos});
   }
  // console.log(this.tiendas);
 }
@@ -59,6 +62,10 @@ generateTree(): void{
   this.viewButton = false;
   this.fillProducts();
   this.fillShops();
+  this.allTree = [{
+   label: "Tiendas",
+    children: this.tiendasYproductos
+}];
   this.data = [{
     //expandedIcon: "pi pi-folder-open",
    label: "Tiendas",

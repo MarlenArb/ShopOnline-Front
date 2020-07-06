@@ -13,3 +13,9 @@ p-button{
 .pretree{
   height: 50px;
 }
+
+body .ui-tree .ui-tree-container .ui-treenode .ui-treenode-content {
+  padding: 0;
+  border: 1px solid transparent;
+  background-color: red !important;
+}

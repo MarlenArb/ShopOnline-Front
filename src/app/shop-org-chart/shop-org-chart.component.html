@@ -2,6 +2,8 @@
 <p-button label="fillShops" icon="pi pi-check" iconPos="left" (click)='fillShops()'></p-button> -->
 <p-button *ngIf="viewButton" label="Ver" (click)='generateTree()'></p-button>
 
+<div class="pretree"></div>
+
 <p-organizationChart [value]="data"
     styleClass="company">
     <ng-template let-node pTemplate="root">
@@ -17,5 +19,7 @@
 </p-organizationChart>
 
 <div class="pretree"></div>
+
+<p-tree [value]="tiendasYproductos"   class="tree"></p-tree>
 
 <!-- <p-tree [value]="data" layout="horizontal"  class="tree"></p-tree> -->
