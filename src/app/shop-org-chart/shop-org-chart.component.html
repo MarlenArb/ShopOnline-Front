@@ -9,6 +9,7 @@
     </ng-template>
     <ng-template let-node pTemplate="shop">
         <span  class="title">{{node.label}}</span>
+        <p-tree [value]="productos"   class="tree"></p-tree>
     </ng-template>
     <ng-template let-node pTemplate="product">
         <span  class="title_thin">{{node.label}}</span>
