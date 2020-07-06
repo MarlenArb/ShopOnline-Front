@@ -40,7 +40,7 @@ fillShops(): void{
   this.tiendas = [];
   for(let i = 0; i<this.shops.length; i++){
     this.tienda.label = `${this.shops[i].shopName}`;
-    this.tiendas.push({label:`${this.shops[i].shopName}`, type: 'leaf', children: this.productos});
+    this.tiendas.push({label:`${this.shops[i].shopName}`, type: 'shop', children: this.productos});
   }
  // console.log(this.tiendas);
 }
@@ -49,7 +49,7 @@ fillProducts(): void{
   //console.log(this.products) ;
   this.productos = [];
   for(let i = 0; i<this.products.length; i++){ 
-    this.productos.push({label:`${this.products[i].productName}`, type: 'leaf'});
+    this.productos.push({label:`${this.products[i].productName}`, type: 'product'});
   }
   //console.log(this.productos);
 }

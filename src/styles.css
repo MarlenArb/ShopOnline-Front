@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800&display=swap');
 html{
   position: relative;
   min-height: 100%;
@@ -67,6 +67,17 @@ body{
 
 .title{
   font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+.title_bold{
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+}
+
+.title_thin{
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 
 .nofilter{

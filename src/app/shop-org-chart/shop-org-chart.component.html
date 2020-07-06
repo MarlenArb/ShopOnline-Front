@@ -5,13 +5,13 @@
 <p-organizationChart [value]="data"
     styleClass="company">
     <ng-template let-node pTemplate="root">
-        <span class="title" style="font-weight: 800;"> Tiendas <i class="fas fa-store"></i></span>
+        <span class="title_bold"> Tiendas <i class="fas fa-store"></i></span>
     </ng-template>
-    <ng-template let-node pTemplate="leaf">
+    <ng-template let-node pTemplate="shop">
         <span  class="title">{{node.label}}</span>
     </ng-template>
-    <ng-template let-node pTemplate="default">
-        1
+    <ng-template let-node pTemplate="product">
+        <span  class="title_thin">{{node.label}}</span>
     </ng-template>
 </p-organizationChart>
 
