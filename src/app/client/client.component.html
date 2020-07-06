@@ -1,3 +1,4 @@
+<div class="container">
 <div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Clientes
   <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
 </div>
@@ -41,4 +42,5 @@
     </tbody>
   </table>
   <app-client-paginator *ngIf="clientPaginator && searched === ''" [clientPaginator]="clientPaginator"></app-client-paginator>
+</div>
 </div>

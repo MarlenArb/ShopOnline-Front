@@ -1,3 +1,4 @@
+<div class="container">
 <div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Tiendas
   <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
 </div>
@@ -37,4 +38,5 @@
   </table>
   <app-shop-paginator *ngIf="shopPaginator && searched == ''" [shopPaginator]="shopPaginator"></app-shop-paginator>
 
+</div>
 </div>
