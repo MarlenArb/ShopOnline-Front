@@ -4,7 +4,8 @@
 
 <div class="pretree"></div>
 
-<p-organizationChart [value]="data"
+<!--hide on screens smaller than lg-->
+<p-organizationChart [value]="data" class="d-none d-lg-block"
     styleClass="company">
     <ng-template let-node pTemplate="root">
         <span class="title_bold"> Tiendas <i class="fas fa-store"></i></span>
@@ -18,8 +19,7 @@
     </ng-template>
 </p-organizationChart>
 
-<div class="pretree"></div>
 
-<p-tree [value]="tiendasYproductos"   class="tree"></p-tree>
-
+<!--hide on lg and wider screens-->
+<div class="d-lg-none"><p-tree [value]="allTree" layout="horizontal"  class="tree"></p-tree></div>
 <!-- <p-tree [value]="data" layout="horizontal"  class="tree"></p-tree> -->
