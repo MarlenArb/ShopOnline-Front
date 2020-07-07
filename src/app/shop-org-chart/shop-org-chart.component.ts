@@ -37,6 +37,8 @@ export class ShopOrgChartComponent implements OnInit {
     this.productService.getProducts().subscribe (
       products => this.products = products
     );
+
+    this.mainFunction();
 }
 
 fillShops(): void{
@@ -75,6 +77,12 @@ generateTree(): void{
     children: this.tiendas
 }];
 
+}
+
+mainFunction(){
+  setTimeout(() => {
+    this.generateTree();
+  }, 500);
 }
 
 }
