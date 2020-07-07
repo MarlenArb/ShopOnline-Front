@@ -27,7 +27,6 @@ export class ShopOrgChartComponent implements OnInit {
   tiendas: TreeNode[] = [];
   productos: TreeNode[] = [];
   tienda: TreeNode = {label: 'hola'};
-  viewButton: boolean = true;
 
   ngOnInit() {
   this.shopService.getShops().subscribe (
@@ -38,51 +37,45 @@ export class ShopOrgChartComponent implements OnInit {
       products => this.products = products
     );
 
-    this.mainFunction();
-}
-
-fillShops(): void{
-  this.tiendas = [];
-  for(let i = 0; i<this.shops.length; i++){
-    this.tienda.label = `${this.shops[i].shopName}`;
-    this.tiendas.push({label:`${this.shops[i].shopName}`, type: 'shop'});
-    this.tiendasYproductos.push({label:`${this.shops[i].shopName}`, children: this.productos});
-  }
- // console.log(this.tiendas);
-}
-
-fillProducts(): void{
-  //console.log(this.products) ;
-  this.productos = [];
-  for(let i = 0; i<this.products.length; i++){ 
-    this.productos.push({label:`${this.products[i].productName}`, type: 'product'});
-  }
-  //console.log(this.productos);
-}
-
-generateTree(): void{
-  this.viewButton = false;
-  this.fillProducts();
-  this.fillShops();
-  this.allTree = [{
-   label: "Tiendas",
-    children: this.tiendasYproductos
-}];
-  this.data = [{
-    //expandedIcon: "pi pi-folder-open",
-   label: "Tiendas",
-   type: "root",
-   //icon: "pi pi-shopping-cart",
-   styleClass: "company",
-    children: this.tiendas
-}];
-
-}
-
-mainFunction(){
-  setTimeout(() => {
     this.generateTree();
-  }, 500);
 }
+
+  fillShops(): void{
+    this.tiendas = [];
+    for(let i = 0; i<this.shops.length; i++){
+      this.tienda.label = `${this.shops[i].shopName}`;
+      this.tiendas.push({label:`${this.shops[i].shopName}`, type: 'shop'});
+      this.tiendasYproductos.push({label:`${this.shops[i].shopName}`, children: this.productos});
+    }
+  }
+
+  fillProducts(): void{
+    this.productos = [];
+    for(let i = 0; i<this.products.length; i++){ 
+      this.productos.push({label:`${this.products[i].productName}`, type: 'product'});
+    }
+  }
+
+  generateTree(): void{
+    setTimeout(() => { //Da tiempo a que se ejecuten los gets
+
+      this.fillProducts();
+      this.fillShops();
+      this.allTree = [{
+      label: "Tiendas",
+        children: this.tiendasYproductos
+    }];
+      this.data = [{
+        //expandedIcon: "pi pi-folder-open",
+      label: "Tiendas",
+      type: "root",
+      //icon: "pi pi-shopping-cart",
+      styleClass: "company",
+        children: this.tiendas
+    }];
+
+    }, 250);
+  }
+
 
 }

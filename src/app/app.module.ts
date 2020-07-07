@@ -32,7 +32,9 @@ import { SupplierPaginatorComponent } from './paginator/supplier-paginator/suppl
 import { ProductPaginatorComponent } from './paginator/product-paginator/product-paginator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShopOrgChartComponent } from './shop-org-chart/shop-org-chart.component';
+import { MakeOrdersComponent } from './make-orders/make-orders.component';
 
+/* Angular Material Modules used */
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
@@ -42,12 +44,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 
+/* Primeng Modules used */
 import {ButtonModule} from 'primeng/button';
 import {OrganizationChartModule} from 'primeng/organizationchart';
-import { MakeOrdersComponent } from './make-orders/make-orders.component';
 import {PickListModule} from 'primeng/picklist';
 import {TreeModule} from 'primeng/tree';
-import { OrgChartComponent } from './org-chart/org-chart.component';
 
 
 registerLocaleData(localeEs, 'es');
@@ -55,7 +56,6 @@ registerLocaleData(localeEs, 'es');
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   {path: 'home', component: HomeComponent},
-  {path: 'orgchart', component: OrgChartComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'shoporg', component: ShopOrgChartComponent},
   {path: 'shop/form', component: SformComponent},
@@ -112,8 +112,7 @@ const routes: Routes = [
     SupplierPaginatorComponent,
     ProductPaginatorComponent,
     ShopOrgChartComponent,
-    MakeOrdersComponent,
-    OrgChartComponent
+    MakeOrdersComponent
   ],
   imports: [
     BrowserModule,
