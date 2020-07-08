@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 c1">
   <a class="navbar-brand title" href="#" routerLink="/home">{{title}}
-    <i class="fas fa-store logo"></i>
+    <i class="fas fa-store logo" [style.background-color]="color" [style.border-color]="color"></i>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
         <a class="nav-link" href="#" routerLink="/shoporg">Tiendas</a>
       </li>
       <li class="nav-item active ml-sm-2 text-center">
-        <a class="nav-link header-btn" href="#" routerLink="/makeorder"><i class="fas fa-cart-plus"></i></a>
+        <a class="nav-link header-btn" [style.background-color]="color" href="#" routerLink="/makeorder"><i class="fas fa-cart-plus"></i></a>
       </li>
     </ul>
   </div>

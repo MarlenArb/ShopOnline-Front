@@ -9,13 +9,18 @@ import { DataService } from '../shop/shop-interface/data.service';
 export class HeaderComponent implements OnInit {
 
   public title: String = "Shop-Online";
+  public color: String;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.title = "Shop-Online";
-    this.dataService.name$.subscribe( nameShop => 
-      this.title = nameShop)
+    this.color = "#e6d6df";
+    this.dataService.tienda$.subscribe( shop => {
+      this.title = shop.shopName;
+      this.color = shop.color;
+
+      })
   }
 
 }

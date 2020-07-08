@@ -20,7 +20,7 @@ export class ShopInterfaceComponent implements OnInit {
   }
 
   goShop(shop: Shop){
-    this.dataService.name$.emit(shop.shopName)
+    this.dataService.tienda$.emit(shop)
   }
 
 }
