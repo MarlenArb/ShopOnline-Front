@@ -9,3 +9,13 @@
 .card:hover{
   background-color: whitesmoke;
 }
+
+.logo{
+  border-radius: 100%;
+  border: 5px solid white;
+  background-color: white;
+}
+
+.heart{
+  text-shadow: 1px 0px #000000;
+}
