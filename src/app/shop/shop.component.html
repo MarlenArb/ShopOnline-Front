@@ -34,7 +34,7 @@
         <th scope="row" class="edit" title="Editar {{shop.shopName}}" [routerLink]="['/shop/form', shop.idShop]"><i class="fas fa-pen-square"></i></th>
         <td>{{shop.shopName}}</td>
         <td>{{shop.cif}}</td>
-        <td>{{shop.color}}</td>
+        <td> <div class="box" [style.background-color]="shop.color" title="{{shop.color}}"></div> </td>
       </tr>
     </tbody>
   </table>
