@@ -26,6 +26,7 @@
         <th scope="col" class="text-center column1"  [routerLink]="['/shop/form']"><i class="fas fa-plus-square plus" title="Añadir Tienda"></i></th>
         <th scope="col">Nombre Tienda</th>
         <th scope="col">CIF</th>
+        <th scope="col">Color</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +34,7 @@
         <th scope="row" class="edit" title="Editar {{shop.shopName}}" [routerLink]="['/shop/form', shop.idShop]"><i class="fas fa-pen-square"></i></th>
         <td>{{shop.shopName}}</td>
         <td>{{shop.cif}}</td>
+        <td>{{shop.color}}</td>
       </tr>
     </tbody>
   </table>

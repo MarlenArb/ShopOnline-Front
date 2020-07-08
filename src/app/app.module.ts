@@ -52,6 +52,7 @@ import {OrganizationChartModule} from 'primeng/organizationchart';
 import {PickListModule} from 'primeng/picklist';
 import {TreeModule} from 'primeng/tree';
 import { DataService } from './shop/shop-interface/data.service';
+import {ColorPickerModule} from 'primeng/colorpicker';
 
 
 registerLocaleData(localeEs, 'es');
@@ -139,6 +140,7 @@ const routes: Routes = [
     MatInputModule,
     MatSelectModule,
     PickListModule,
+    ColorPickerModule,
     TreeModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService],

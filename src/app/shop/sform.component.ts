@@ -44,7 +44,11 @@ export class SformComponent implements OnInit {
   }
 
 
+  seeColor(){
+    
+  }
   modifyShop(): void {
+    console.log()
     this.shopService.modifyShop(this.shop).subscribe(
       shop => {
         this.router.navigate(['/shops/page/0'])
