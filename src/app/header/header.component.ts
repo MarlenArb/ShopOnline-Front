@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../shop/shop-interface/data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public title: String = "Shop-Online";
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.title = "Shop-Online";
+    this.dataService.name$.subscribe( nameShop => 
+      this.title = nameShop)
   }
 
 }

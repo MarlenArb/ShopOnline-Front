@@ -1,0 +1,11 @@
+.f-25{
+  font-size: 25px !important;
+}
+
+.f-20{
+  font-size: 17.5px !important;
+}
+
+.card:hover{
+  background-color: whitesmoke;
+}

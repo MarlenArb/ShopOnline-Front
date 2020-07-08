@@ -33,6 +33,8 @@ import { ProductPaginatorComponent } from './paginator/product-paginator/product
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShopOrgChartComponent } from './shop-org-chart/shop-org-chart.component';
 import { MakeOrdersComponent } from './make-orders/make-orders.component';
+import { ShopInterfaceComponent } from './shop/shop-interface/shop-interface.component';
+
 
 /* Angular Material Modules used */
 import {MatTabsModule} from '@angular/material/tabs';
@@ -49,6 +51,7 @@ import {ButtonModule} from 'primeng/button';
 import {OrganizationChartModule} from 'primeng/organizationchart';
 import {PickListModule} from 'primeng/picklist';
 import {TreeModule} from 'primeng/tree';
+import { DataService } from './shop/shop-interface/data.service';
 
 
 registerLocaleData(localeEs, 'es');
@@ -60,6 +63,9 @@ const routes: Routes = [
   {path: 'shoporg', component: ShopOrgChartComponent},
   {path: 'shop/form', component: SformComponent},
   {path: 'shop/form/:idShop', component: SformComponent},
+
+  {path: 'tiendas', component: ShopInterfaceComponent},
+
   {path: 'client', component: ClientComponent},
   {path: 'client/form', component: CformComponent},
   {path: 'client/form/:idClient', component: CformComponent},
@@ -112,7 +118,8 @@ const routes: Routes = [
     SupplierPaginatorComponent,
     ProductPaginatorComponent,
     ShopOrgChartComponent,
-    MakeOrdersComponent
+    MakeOrdersComponent,
+    ShopInterfaceComponent
   ],
   imports: [
     BrowserModule,
@@ -134,7 +141,7 @@ const routes: Routes = [
     PickListModule,
     TreeModule
   ],
-  providers: [ShopService, ClientService, SupplierService, ProductService, OrderService],
+  providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

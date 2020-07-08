@@ -1,0 +1,7 @@
+<div class="container-lg mt-4">
+  <div class="card mt-2 title" *ngFor="let shop of shops" style="cursor: pointer;" (click)='goShop(shop)'>
+    <div class="card-body f-20" title="Visitar {{ shop.shopName }}">
+      {{ shop.shopName }}  <i class="fas fa-store f-25 float-right"></i>
+    </div>
+  </div>
+</div>
