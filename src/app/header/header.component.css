@@ -12,3 +12,7 @@
 .c2{
   z-index: 1200;
 }
+
+a:active{
+  background-color: ghostwhite;
+}
