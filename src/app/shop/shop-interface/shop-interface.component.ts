@@ -23,4 +23,12 @@ export class ShopInterfaceComponent implements OnInit {
     this.dataService.tienda$.emit(shop)
   }
 
+  return(){
+    let shop: Shop = new Shop;
+    shop.color = "#e6d6df";
+    shop.shopName = "Shop-Online";
+    this.goShop(shop);
+
+  }
+
 }

@@ -19,3 +19,13 @@
 .heart{
   text-shadow: 1px 0px #000000;
 }
+
+.return{
+  background-color: white;
+  opacity: 0.8;
+}
+
+.return:hover{
+  cursor: pointer;
+  opacity: 1;
+}

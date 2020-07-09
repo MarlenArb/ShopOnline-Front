@@ -1,4 +1,7 @@
-<div class="container-lg mt-4">
+
+<div class="mt-4 ml-5 p-2 return" style="display: inline-block;" title="Volver" routerLink="/home" (click)='return()'><i class="fas fa-caret-left"></i></div>
+
+<div class="container-lg mt-2">
   <div class="card mt-2 title" *ngFor="let shop of shops" style="cursor: pointer;" (click)='goShop(shop)'>
     <div class="card-body f-20" title="Visitar {{ shop.shopName }}">
       <i class="fas fa-heart heart" [style.color]="shop.color"></i> &nbsp;  {{ shop.shopName }}  
