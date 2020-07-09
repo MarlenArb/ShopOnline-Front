@@ -54,6 +54,7 @@ import {PickListModule} from 'primeng/picklist';
 import {TreeModule} from 'primeng/tree';
 import { DataService } from './shop/shop-interface/data.service';
 import {ColorPickerModule} from 'primeng/colorpicker';
+import {CarouselModule} from 'primeng/carousel';
 
 
 registerLocaleData(localeEs, 'es');
@@ -144,7 +145,8 @@ const routes: Routes = [
     MatSelectModule,
     PickListModule,
     ColorPickerModule,
-    TreeModule
+    TreeModule,
+    CarouselModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService],
   bootstrap: [AppComponent]

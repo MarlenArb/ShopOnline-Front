@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Shop } from '../shop/shop';
 import { ShopService } from '../shop/shop.service';
+import { Product } from '../product/product';
+import { ProductService } from '../product/product.service';
 
 @Component({
   selector: 'app-shop-main-page',
@@ -10,12 +12,17 @@ import { ShopService } from '../shop/shop.service';
 })
 export class ShopMainPageComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private shopService: ShopService) { }
+  constructor(private activatedRoute: ActivatedRoute, private shopService: ShopService,
+              private productService: ProductService) { }
 
   shop: Shop = new Shop;
+  products: Product[] = [];
 
   ngOnInit() {
     this.getShop();
+    this.productService.getProducts().subscribe( 
+      products => this.products = products
+    )
   }
 
   getShop(){

@@ -143,6 +143,19 @@ a:hover {
   border-radius: 4px;
 }
 
+.ui-carousel-header-title{
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 20px !important;
+}
+
+.ui-carousel-header{
+  margin: auto !important;
+  background-color: white !important;
+  padding: 10px !important;
+  text-align: center !important;
+}
+
 html, body { 
   height: 100%; 
   overflow-x: auto !important;
