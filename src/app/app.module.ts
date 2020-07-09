@@ -34,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShopOrgChartComponent } from './shop-org-chart/shop-org-chart.component';
 import { MakeOrdersComponent } from './make-orders/make-orders.component';
 import { ShopInterfaceComponent } from './shop/shop-interface/shop-interface.component';
+import { ShopMainPageComponent } from './shop-main-page/shop-main-page.component';
 
 
 /* Angular Material Modules used */
@@ -66,6 +67,7 @@ const routes: Routes = [
   {path: 'shop/form/:idShop', component: SformComponent},
 
   {path: 'tiendas', component: ShopInterfaceComponent},
+  {path: 'tiendas/:idShop', component: ShopMainPageComponent},
 
   {path: 'client', component: ClientComponent},
   {path: 'client/form', component: CformComponent},
@@ -120,7 +122,8 @@ const routes: Routes = [
     ProductPaginatorComponent,
     ShopOrgChartComponent,
     MakeOrdersComponent,
-    ShopInterfaceComponent
+    ShopInterfaceComponent,
+    ShopMainPageComponent
   ],
   imports: [
     BrowserModule,

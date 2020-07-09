@@ -43,10 +43,7 @@ export class SformComponent implements OnInit {
     })
   }
 
-
-  seeColor(){
-    
-  }
+  //Modificar una tienda
   modifyShop(): void {
     console.log()
     this.shopService.modifyShop(this.shop).subscribe(
