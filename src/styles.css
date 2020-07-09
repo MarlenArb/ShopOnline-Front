@@ -143,6 +143,10 @@ a:hover {
   border-radius: 4px;
 }
 
+.soft-box-shadow, .ui-carousel{
+  box-shadow: 3px 3px 3px 0px #0000003d;
+}
+
 .ui-carousel-header-title{
   font-family: 'Playfair Display', serif !important;
   font-weight: 800 !important;
@@ -155,6 +159,13 @@ a:hover {
   padding: 10px !important;
   text-align: center !important;
 }
+
+
+.ui-carousel-viewport{
+  background-color: #ecd6e27c !important;
+}
+
+
 
 html, body { 
   height: 100%; 
