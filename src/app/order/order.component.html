@@ -45,10 +45,10 @@
   </table>
   <app-order-paginator *ngIf="orderPaginator && searched == ''" [orderPaginator]="orderPaginator"></app-order-paginator>
 </div>
+</div>
 
 
-
-<!-- Modal -->
+<!-- Modal, debe ir fuera del container sino se queda colocado debajo -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -65,5 +65,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
