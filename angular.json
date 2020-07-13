@@ -34,7 +34,8 @@
               "src/assets/js/jquery-3.4.1.slim.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/popper.min.js",
-              "src/assets/js/fontawesomekit.js"
+              "src/assets/js/fontawesomekit.js",
+              "node_modules/chart.js/dist/Chart.js"
             ]
           },
           "configurations": {
