@@ -55,7 +55,8 @@ import {TreeModule} from 'primeng/tree';
 import { DataService } from './shop/shop-interface/data.service';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {CarouselModule} from 'primeng/carousel';
-
+import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
 
 registerLocaleData(localeEs, 'es');
 
@@ -146,9 +147,10 @@ const routes: Routes = [
     PickListModule,
     ColorPickerModule,
     TreeModule,
-    CarouselModule
+    CarouselModule,
+    ToastModule
   ],
-  providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService],
+  providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

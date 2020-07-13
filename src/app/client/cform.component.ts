@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Client } from './client';
 import { ClientService } from './client.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-cform',
@@ -16,7 +17,8 @@ export class CformComponent implements OnInit {
 
   constructor(public clientService: ClientService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.loadClient();
@@ -49,7 +51,7 @@ export class CformComponent implements OnInit {
     this.clientService.modifyClient(this.client).subscribe(
       client => {
         this.router.navigate(['/clients/page/0'])
-        Swal.fire('Cliente Actualizado', `Cliente ${this.client.clientName} actualizado con éxito`, 'success')
+        this.messageService.add({severity:'success', summary:'Cliente Actualizado', detail:`Cliente ${this.client.clientName} actualizado con éxito`});
       }
     )
   }
