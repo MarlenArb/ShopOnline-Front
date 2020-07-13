@@ -1,13 +1,13 @@
 <div class="container-lg">
 <div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Proveedores
-  <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
+  <i class="fas fa-search float-right lupa" matTooltip="Buscar" (click)='filterActive = true'></i>
 </div>
 
 <div class="row mt-2" *ngIf="filterActive">
   <div class="col-sm-10">
     <div class="form-group input-group">
       <input type="text" class="form-control" name="filter" [(ngModel)]="filterPost" placeholder="Buscar proveedor..."  style="font-family: georgia,garamond,serif; font-style: italic;">
-      <div class="input-group-append" title="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
+      <div class="input-group-append" matTooltip="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
         <span class="input-group-text nofilter">X</span>
       </div>
     </div>
@@ -24,14 +24,14 @@
     <thead class="thead-dark">
      <!--  <i class="fas fa-search float-right"></i> -->
       <tr>
-        <th scope="col" class="text-center column1"  [routerLink]="['/supplier/form']"><i class="fas fa-plus-square plus" title="Añadir Proveedor"></i></th>
+        <th scope="col" class="text-center column1"  [routerLink]="['/supplier/form']"><i class="fas fa-plus-square plus" matTooltip="Añadir Proveedor"></i></th>
         <th scope="col">Nombre Proveedor</th>
         <th scope="col">Nº Productos</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let supplier of suppliers; let i = index">
-        <th scope="row" class="edit" title="Editar {{supplier.name}}" [routerLink]="['/supplier/form', supplier.idSupplier]"><i class="fas fa-pen-square"></i></th>
+        <th scope="row" class="edit" matTooltip="Editar {{supplier.name}}" [routerLink]="['/supplier/form', supplier.idSupplier]"><i class="fas fa-pen-square"></i></th>
         <td>{{supplier.name}}</td>
         <td>{{supplier.numberProducts}}</td>
       </tr>

@@ -7,7 +7,7 @@
       <div class="card-header">
         <span *ngIf="!client.idClient" >Creando Cliente</span>
         <span *ngIf="client.idClient" >Editando Cliente</span>
-        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+        <button type="button" class="close" aria-label="Close" matTooltip="Volver" (click)='return()'>
           <span aria-hidden="true" class="">&times;</span>
         </button>
       </div>
@@ -59,9 +59,9 @@
 
       <!--Footer-->
       <div class="card-footer">
-        <button *ngIf="client.idClient" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifyClient()' [disabled]="!clientForm.form.valid">Editar</button>
-        <button *ngIf="!client.idClient" class="btn btn-edit ml-1" type="button"  title="Crear Cliente" (click)='addClient()' [disabled]="!clientForm.form.valid">Crear</button>
-        <button *ngIf="client.idClient" class="btn btn-edit" type="button"  title="Borrar Cliente" (click)='deleteClient(client)'><i class="fas fa-trash"></i></button>
+        <button *ngIf="client.idClient" class="btn btn-edit ml-1" type="button" matTooltip="Confirmar Cambios" (click)='modifyClient()' [disabled]="!clientForm.form.valid">Editar</button>
+        <button *ngIf="!client.idClient" class="btn btn-edit ml-1" type="button"  matTooltip="Crear Cliente" (click)='addClient()' [disabled]="!clientForm.form.valid">Crear</button>
+        <button *ngIf="client.idClient" class="btn btn-edit" type="button"  matTooltip="Borrar Cliente" (click)='deleteClient(client)'><i class="fas fa-trash"></i></button>
       </div>
 
     </div>

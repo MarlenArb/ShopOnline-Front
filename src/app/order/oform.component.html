@@ -7,7 +7,7 @@
       <div class="card-header">
         <span *ngIf="!order.idOrder" >Creando Pedido</span>
         <span *ngIf="order.idOrder" >Editando Pedido</span>
-        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+        <button type="button" class="close" aria-label="Close" matTooltip="Volver" (click)='return()'>
           <span aria-hidden="true" class="">&times;</span>
         </button>
       </div>
@@ -56,9 +56,9 @@
 
       <!--Footer-->
       <div class="card-footer">
-        <button *ngIf="order.idOrder" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifyOrder()' [disabled]="!orderForm.form.valid">Editar</button>
-        <button *ngIf="!order.idOrder" class="btn btn-edit ml-1" type="button" title="Crear Pedido" (click)='addOrder()' [disabled]="!orderForm.form.valid">Crear</button>
-        <button *ngIf="order.idOrder" class="btn btn-edit" type="button" title="Borrar Pedido" (click)='deleteOrder(order)'><i class="fas fa-trash"></i></button>
+        <button *ngIf="order.idOrder" class="btn btn-edit ml-1" type="button" matTooltip="Confirmar Cambios" (click)='modifyOrder()' [disabled]="!orderForm.form.valid">Editar</button>
+        <button *ngIf="!order.idOrder" class="btn btn-edit ml-1" type="button" matTooltip="Crear Pedido" (click)='addOrder()' [disabled]="!orderForm.form.valid">Crear</button>
+        <button *ngIf="order.idOrder" class="btn btn-edit" type="button" matTooltip="Borrar Pedido" (click)='deleteOrder(order)'><i class="fas fa-trash"></i></button>
       </div>
 
     </div>

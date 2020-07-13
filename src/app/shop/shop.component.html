@@ -1,13 +1,13 @@
 <div class="container-lg">
 <div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Tiendas
-  <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
+  <i class="fas fa-search float-right lupa" matTooltip="Buscar" (click)='filterActive = true'></i>
 </div>
 
 <div class="row mt-2" *ngIf="filterActive">
   <div class="col-sm-10">
     <div class="form-group input-group">
       <input type="text" class="form-control" name="filter" [(ngModel)]="filterPost" placeholder="Buscar tienda..."  style="font-family: georgia,garamond,serif; font-style: italic;">
-      <div class="input-group-append" title="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
+      <div class="input-group-append" matTooltip="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
         <span class="input-group-text nofilter">X</span>
       </div>
     </div>
@@ -23,7 +23,7 @@
   <table class="table table-sm">
     <thead class="thead-dark">
       <tr>
-        <th scope="col" class="text-center column1"  [routerLink]="['/shop/form']"><i class="fas fa-plus-square plus" title="Añadir Tienda"></i></th>
+        <th scope="col" class="text-center column1"  [routerLink]="['/shop/form']"><i class="fas fa-plus-square plus" matTooltip="Añadir Tienda"></i></th>
         <th scope="col">Nombre Tienda</th>
         <th scope="col">CIF</th>
         <th scope="col">Color</th>
@@ -31,10 +31,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let shop of shops; let i = index">
-        <th scope="row" class="edit" title="Editar {{shop.shopName}}" [routerLink]="['/shop/form', shop.idShop]"><i class="fas fa-pen-square"></i></th>
+        <th scope="row" class="edit" matTooltip="Editar {{shop.shopName}}" [routerLink]="['/shop/form', shop.idShop]"><i class="fas fa-pen-square"></i></th>
         <td>{{shop.shopName}}</td>
         <td>{{shop.cif}}</td>
-        <td> <div class="box" [style.background-color]="shop.color" title="{{shop.color}}"></div> </td>
+        <td> <div class="box" [style.background-color]="shop.color" matTooltip="{{shop.color}}"></div> </td>
       </tr>
     </tbody>
   </table>

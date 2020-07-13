@@ -7,7 +7,7 @@
       <div class="card-header">
         <span *ngIf="!supplier.idSupplier" >Creando Proveedor</span>
         <span *ngIf="supplier.idSupplier" >Editando Proveedor</span>
-        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+        <button type="button" class="close" aria-label="Close" matTooltip="Volver" (click)='return()'>
           <span aria-hidden="true" class="">&times;</span>
         </button>
       </div>
@@ -29,9 +29,9 @@
 
       <!--Footer-->
       <div class="card-footer">
-        <button *ngIf="supplier.idSupplier" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifySupplier()' [disabled]="!supplierForm.form.valid">Editar</button>
-        <button *ngIf="!supplier.idSupplier" class="btn btn-edit ml-1" type="button" title="Crear Proveedor" (click)='addSupplier()' [disabled]="!supplierForm.form.valid">Crear</button>
-        <button *ngIf="supplier.idSupplier" class="btn btn-edit" type="button" title="Borrar Proveedor" (click)='deleteSupplier(supplier)'><i class="fas fa-trash"></i></button>
+        <button *ngIf="supplier.idSupplier" class="btn btn-edit ml-1" type="button" matTooltip="Confirmar Cambios" (click)='modifySupplier()' [disabled]="!supplierForm.form.valid">Editar</button>
+        <button *ngIf="!supplier.idSupplier" class="btn btn-edit ml-1" type="button" matTooltip="Crear Proveedor" (click)='addSupplier()' [disabled]="!supplierForm.form.valid">Crear</button>
+        <button *ngIf="supplier.idSupplier" class="btn btn-edit" type="button" matTooltip="Borrar Proveedor" (click)='deleteSupplier(supplier)'><i class="fas fa-trash"></i></button>
       </div>
 
     </div>

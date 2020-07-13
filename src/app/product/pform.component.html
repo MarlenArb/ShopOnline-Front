@@ -7,7 +7,7 @@
       <div class="card-header">
         <span *ngIf="!product.idProduct" >Creando Producto</span>
         <span *ngIf="product.idProduct" >Editando Producto</span>
-        <button type="button" class="close" aria-label="Close" title="Volver" (click)='return()'>
+        <button type="button" class="close" aria-label="Close" matTooltip="Volver" (click)='return()'>
           <span aria-hidden="true" class="">&times;</span>
         </button>
       </div>
@@ -60,13 +60,15 @@
 
       <!--Footer-->
       <div class="card-footer">
-        <button *ngIf="product.idProduct" class="btn btn-edit ml-1" type="button" title="Confirmar Cambios" (click)='modifyProduct()' [disabled]="!productForm.form.valid">Editar</button>
-        <button *ngIf="!product.idProduct" class="btn btn-edit ml-1" type="button" title="Añadir Producto" (click)='addProduct()' [disabled]="!productForm.form.valid">Crear</button>
+        <button *ngIf="product.idProduct" class="btn btn-edit ml-1" type="button" matTooltip="Confirmar Cambios" (click)='modifyProduct()' [disabled]="!productForm.form.valid">Editar</button>
+        <button *ngIf="!product.idProduct" class="btn btn-edit ml-1" type="button" matTooltip="Añadir Producto" (click)='addProduct()' [disabled]="!productForm.form.valid">Crear</button>
         
-        <button *ngIf="product.idProduct && product.numberOrders != 0 && product.numberOrders; else ElseBlock" class="btn btn-edit-disabled" type="button" title="No es posible borrar un producto que se encuentre entro de un pedido existente" disabled><i class="fas fa-trash"></i></button>
+        <button *ngIf="product.idProduct && product.numberOrders != 0 && product.numberOrders; else ElseBlock" class="btn btn-edit-disabled" type="button"
+        matTooltip="No es posible borrar un producto que se encuentre entro de un pedido existente" ><i class="fas fa-trash"></i></button>
         <ng-template #ElseBlock>
-          <button  class="btn btn-edit" type="button" title="Borrar Producto" (click)='deleteProduct(product)'><i class="fas fa-trash"></i></button>
+          <button  class="btn btn-edit" type="button" matTooltip="Borrar Producto" (click)='deleteProduct(product)'><i class="fas fa-trash"></i></button>
         </ng-template> 
+
       </div>
 
     </div>

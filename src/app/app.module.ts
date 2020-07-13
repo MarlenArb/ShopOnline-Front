@@ -46,6 +46,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 /* Primeng Modules used */
 import {ButtonModule} from 'primeng/button';
@@ -57,6 +58,7 @@ import {ColorPickerModule} from 'primeng/colorpicker';
 import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
+
 
 registerLocaleData(localeEs, 'es');
 
@@ -148,7 +150,8 @@ const routes: Routes = [
     ColorPickerModule,
     TreeModule,
     CarouselModule,
-    ToastModule
+    ToastModule,
+    MatTooltipModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService, MessageService],
   bootstrap: [AppComponent]

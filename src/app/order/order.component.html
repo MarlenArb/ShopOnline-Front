@@ -1,13 +1,13 @@
 <div class="container-lg">
 <div *ngIf="!filterActive" class="title mt-2 col-12 bg-white pt-1 pb-1">Pedidos
-  <i class="fas fa-search float-right lupa" title="Buscar" (click)='filterActive = true'></i>
+  <i class="fas fa-search float-right lupa" matTooltip="Buscar" (click)='filterActive = true'></i>
 </div>
 
 <div class="row mt-2" *ngIf="filterActive">
   <div class="col-sm-10">
     <div class="form-group input-group">
       <input type="text" class="form-control" name="filter" [(ngModel)]="filterPost" placeholder="Buscar pedido..."  style="font-family: georgia,garamond,serif; font-style: italic;">
-      <div class="input-group-append" title="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
+      <div class="input-group-append" matTooltip="Eliminar Filtro"   (click)='noFilter();' style="cursor: pointer;">
         <span class="input-group-text nofilter">X</span>
       </div>
     </div>
@@ -24,7 +24,7 @@
     <thead class="thead-dark">
      <!--  <i class="fas fa-search float-right"></i> -->
       <tr>
-        <th scope="col" class="text-center column1"  [routerLink]="['/order/form']"><i class="fas fa-plus-square plus" title="Añadir Tienda"></i></th>
+        <th scope="col" class="text-center column1"  [routerLink]="['/order/form']"><i class="fas fa-plus-square plus" matTooltip="Añadir Tienda"></i></th>
         <th scope="col">Ref.</th>
         <th scope="col">Cliente</th>
         <th scope="col">Fecha</th>
@@ -34,12 +34,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let order of orders; let i = index">
-        <th scope="row" class="edit" title="Editar {{i}}" [routerLink]="['/order/form', order.idOrder]"><i class="fas fa-pen-square"></i></th>
+        <th scope="row" class="edit" matTooltip="Editar {{i}}" [routerLink]="['/order/form', order.idOrder]"><i class="fas fa-pen-square"></i></th>
         <td>{{order.idOrder}}</td>
         <td>{{order.client.clientName}}</td>
         <td>{{order.orderDate | date: "dd/MM"}}</td>
         <td>{{order.shop.shopName}}</td>
-        <td>{{order.products.length}} <i class="far fa-plus-square edit" title="Ver {{order.products.length}} productos" (click)='listProduct(order)' type="button"  data-toggle="modal" data-target="#exampleModalCenter"></i></td>
+        <td>{{order.products.length}} <i class="far fa-plus-square edit" matTooltip="Ver {{order.products.length}} productos" (click)='listProduct(order)' type="button"  data-toggle="modal" data-target="#exampleModalCenter"></i></td>
       </tr>
     </tbody>
   </table>
