@@ -8,5 +8,6 @@ export class Product {
   supplier: Supplier;
   isInOrder: boolean;
   numberOrders: number;
+  color: String = "#ffffff"
 
 }

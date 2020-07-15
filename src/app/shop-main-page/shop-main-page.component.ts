@@ -19,30 +19,12 @@ export class ShopMainPageComponent implements OnInit {
   products: Product[] = [];
   
   data: any;
-  
+
   ngOnInit() {
     this.getShop();
     this.productService.getProducts().subscribe( 
       products => this.products = products
     )
-
-    this.data = {
-      labels: ['A','B','C'],
-      datasets: [
-          {
-              data: [300, 50, 100],
-              backgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ],
-              hoverBackgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ]
-          }]    
-      };
   }
 
   getShop(){

@@ -8,4 +8,9 @@
       <i class="fas fa-store f-25 float-right logo" [style.background-color]="shop.color" [style.border-color]="shop.color"></i>
     </div>
   </div>
+
+  <button (click)='createDataShops()'>Click</button>
+
+  <p-chart type="doughnut" [data]="totalOrders"></p-chart>
+
 </div>
