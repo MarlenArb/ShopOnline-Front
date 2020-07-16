@@ -16,6 +16,7 @@ export class ShopInterfaceComponent implements OnInit {
   totalOrders: any;
   orderData: any;
   numOrdersPerShop: any;
+  allData: any;
   constructor(private shopService: ShopService, private dataService: DataService,
               private router: Router) { }
 
@@ -78,19 +79,13 @@ export class ShopInterfaceComponent implements OnInit {
        console.log(this.shops[i].color);
        this.totalOrders.datasets.backgroundColor.push(this.shops[i].color);
     //  }
-
-      
-
-     // console.log("No tiene pedidos: " + this.shops[i].shopName);
-      //console.log("Número pedidos: " + this.shops[i].orders.length);
     }
 
-    //this.totalOrders.datasets.data.push(this.numOrdersPerShop);
+    this.allData = this.totalOrders;
+
     console.log(this.totalOrders.labels);
     console.log(this.totalOrders.datasets.data);
     console.log(this.totalOrders.datasets.backgroundColor);
-
-    console.log("Array completo: " + this.totalOrders);
 
   }
 
