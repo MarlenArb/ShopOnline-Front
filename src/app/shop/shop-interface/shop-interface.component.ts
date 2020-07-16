@@ -43,19 +43,17 @@ export class ShopInterfaceComponent implements OnInit {
 
   createData(){
     this.data = {
-      labels: ['A','B','C'],
+      labels: ['A','B'],
       datasets: [
           {
-              data: [300, 50, 100],
+              data: [3, 5],
               backgroundColor: [
                   "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
+                  "#36A2EB"
               ],
               hoverBackgroundColor: [
                   "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
+                  "#36A2EB"
               ]
           }]    
       };
@@ -65,8 +63,8 @@ export class ShopInterfaceComponent implements OnInit {
 
   createDataShops(){
    // this.totalOrders = this.data;
-   this.totalOrders.datasets.data = [300, 50, 100];
-   this.totalOrders.datasets.backgroundColor = ["#FF6384", "#36A2EB", "#FFCE56"];
+   this.totalOrders.datasets.data = [3, 5];
+   this.totalOrders.datasets.backgroundColor = ["#FF6384", "#36A2EB"];
 
     for(let i = 0; i < this.shops.length; i++){
       this.totalOrders.labels.push(this.shops[i].shopName);
@@ -76,8 +74,8 @@ export class ShopInterfaceComponent implements OnInit {
         this.totalOrders.datasets.data.push(this.shops[i].orders.length);
 
        console.log(this.shops[i].orders.length);
-       console.log(this.shops[i].color);
-       this.totalOrders.datasets.backgroundColor.push(this.shops[i].color);
+       console.log(this.shops[i].color.toUpperCase());
+       this.totalOrders.datasets.backgroundColor.push(this.shops[i].color.toUpperCase());
     //  }
     }
 
