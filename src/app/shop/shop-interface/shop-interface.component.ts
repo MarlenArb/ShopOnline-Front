@@ -65,6 +65,8 @@ export class ShopInterfaceComponent implements OnInit {
   createDataShops(){
    // this.totalOrders = this.data;
    this.totalOrders.datasets.data = [300, 50, 100];
+   this.totalOrders.datasets.backgroundColor = ["#FF6384", "#36A2EB", "#FFCE56"];
+
     for(let i = 0; i < this.shops.length; i++){
       this.totalOrders.labels.push(this.shops[i].shopName);
     //  if(this.shops[i].orders.length > 0){
@@ -73,7 +75,8 @@ export class ShopInterfaceComponent implements OnInit {
         this.totalOrders.datasets.data.push(this.shops[i].orders.length);
 
        console.log(this.shops[i].orders.length);
-       // this.totalOrders.datasets.backgroundColor.push(this.shops[i].color);
+       console.log(this.shops[i].color);
+       this.totalOrders.datasets.backgroundColor.push(this.shops[i].color);
     //  }
 
       
@@ -85,7 +88,9 @@ export class ShopInterfaceComponent implements OnInit {
     //this.totalOrders.datasets.data.push(this.numOrdersPerShop);
     console.log(this.totalOrders.labels);
     console.log(this.totalOrders.datasets.data);
+    console.log(this.totalOrders.datasets.backgroundColor);
 
+    console.log("Array completo: " + this.totalOrders);
 
   }
 
