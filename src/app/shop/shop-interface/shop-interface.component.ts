@@ -58,29 +58,33 @@ export class ShopInterfaceComponent implements OnInit {
               ]
           }]    
       };
+
+      this.totalOrders = this.data;
   }
 
   createDataShops(){
-    this.totalOrders = this.data;
+   // this.totalOrders = this.data;
+   this.totalOrders.datasets.data = [300, 50, 100];
     for(let i = 0; i < this.shops.length; i++){
       this.totalOrders.labels.push(this.shops[i].shopName);
-      if(this.shops[i].orders.length > 0){
-        this.totalOrders.datasets.data = [300];
-        this.numOrdersPerShop = [300];
-        this.numOrdersPerShop.push(this.shops[i].orders.length);
-       
+    //  if(this.shops[i].orders.length > 0){
+        
+
+        this.totalOrders.datasets.data.push(this.shops[i].orders.length);
+
+       console.log(this.shops[i].orders.length);
        // this.totalOrders.datasets.backgroundColor.push(this.shops[i].color);
-      }
+    //  }
 
       
 
-      console.log("No tiene pedidos: " + this.shops[i].shopName);
-      console.log("Número pedidos: " + this.shops[i].orders.length);
+     // console.log("No tiene pedidos: " + this.shops[i].shopName);
+      //console.log("Número pedidos: " + this.shops[i].orders.length);
     }
 
-    this.totalOrders.datasets.data.push(this.numOrdersPerShop);
+    //this.totalOrders.datasets.data.push(this.numOrdersPerShop);
     console.log(this.totalOrders.labels);
-    console.log(this.totalOrders);
+    console.log(this.totalOrders.datasets.data);
 
 
   }
