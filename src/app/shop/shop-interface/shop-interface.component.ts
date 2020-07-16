@@ -13,10 +13,14 @@ export class ShopInterfaceComponent implements OnInit {
 
   shops: Shop[] = [];
   data: any;
-  totalOrders: any;
+  totalOrders: any = [];
   orderData: any;
   numOrdersPerShop: any;
-  allData: any;
+  allData: any = [];;
+  labels: any[] = [];
+  data2: any[] = [];
+  backgroundColor: any[] = [];
+
   constructor(private shopService: ShopService, private dataService: DataService,
               private router: Router) { }
 
@@ -43,47 +47,49 @@ export class ShopInterfaceComponent implements OnInit {
 
   createData(){
     this.data = {
-      labels: ['A','B'],
+      labels: [],
       datasets: [
           {
-              data: [3, 5],
-              backgroundColor: [
-                  "#FF6384",
-                  "#36A2EB"
-              ],
-              hoverBackgroundColor: [
-                  "#FF6384",
-                  "#36A2EB"
-              ]
+              data: [],
+              backgroundColor: []
           }]    
       };
 
-      this.totalOrders = this.data;
+      //this.totalOrders = this.data;
   }
 
   createDataShops(){
    // this.totalOrders = this.data;
-   this.totalOrders.datasets.data = [3, 5];
-   this.totalOrders.datasets.backgroundColor = ["#FF6384", "#36A2EB"];
+   //this.totalOrders.datasets.data = [];
+   //this.totalOrders.datasets.backgroundColor = [];
 
     for(let i = 0; i < this.shops.length; i++){
-      this.totalOrders.labels.push(this.shops[i].shopName);
+      this.labels.push(this.shops[i].shopName);
     //  if(this.shops[i].orders.length > 0){
-        
-
-        this.totalOrders.datasets.data.push(this.shops[i].orders.length);
-
-       console.log(this.shops[i].orders.length);
-       console.log(this.shops[i].color.toUpperCase());
-       this.totalOrders.datasets.backgroundColor.push(this.shops[i].color.toUpperCase());
+      this.data2.push(this.shops[i].orders.length);
+      this.backgroundColor.push(this.shops[i].color.toUpperCase());
     //  }
     }
 
-    this.allData = this.totalOrders;
+    this.data = {
+      labels: this.labels,
+      datasets: [
+          {
+              data:  this.data2 ,
+              backgroundColor:  this.backgroundColor 
+          }]    
+      };
 
-    console.log(this.totalOrders.labels);
-    console.log(this.totalOrders.datasets.data);
-    console.log(this.totalOrders.datasets.backgroundColor);
+/*     this.totalOrders.labels = this.labels;
+    this.totalOrders.datasets.data = this.data2;
+    this.totalOrders.backgroundColor = this.totalOrders;
+    this.allData = this.totalOrders; */
+
+
+
+    console.log(this.data.labels);
+    console.log(this.data2);
+    console.log(this.backgroundColor); 
 
   }
 
