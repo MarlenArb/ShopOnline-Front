@@ -1,11 +1,18 @@
-.container{
-  font-size: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Asset&family=Playfair+Display:wght@800&display=swap');
+
+img{
+  width: 50vw;
+  display: inline-block;
 }
 
-li{
-
-}
-
-li:hover{
-  background-color: rgba(0, 0, 0, 0.1);
+.titleDiv{
+  position: relative;
+  z-index: 2000;
+  width: 50vw;
+  display: inline-block;
+  margin-left: -13.7vw;
+  font-family: 'Playfair Display', serif;
+  font-size: 80px !important;
+  font-weight: 800 !important;
+  color: white;
 }
