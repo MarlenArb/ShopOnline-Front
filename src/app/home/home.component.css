@@ -10,7 +10,7 @@ img{
   z-index: 2000;
   width: 50vw;
   display: inline-block;
-  margin-left: -13.7vw;
+  margin-left: -13.65vw;
   font-family: 'Playfair Display', serif;
   font-size: 80px !important;
   font-weight: 800 !important;
@@ -23,7 +23,7 @@ img{
 }
 
 #guion{
-  background-image: linear-gradient(90deg, white, #ada4a4);
+  background-image: linear-gradient(90deg, white 50%, #ada4a4 50%);
   /* -webkit-background-clip: text; */
   background-clip: text;
   color: transparent;
