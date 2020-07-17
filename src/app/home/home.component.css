@@ -14,5 +14,9 @@ img{
   font-family: 'Playfair Display', serif;
   font-size: 80px !important;
   font-weight: 800 !important;
-  color: white;
+  /*color: white;*/
+
+  color: transparent;
+  background: url("/assets/img/home.jpg") repeat;
+  -webkit-background-clip: text;
 }
