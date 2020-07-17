@@ -18,5 +18,13 @@ img{
 
   color: transparent;
   background: url("/assets/img/home.jpg") repeat;
-  -webkit-background-clip: text;
+  background-clip: text;
+  /*-webkit-background-clip: text;*/
+}
+
+#guion{
+  background-image: linear-gradient(90deg, white, #ada4a4);
+  /* -webkit-background-clip: text; */
+  background-clip: text;
+  color: transparent;
 }
