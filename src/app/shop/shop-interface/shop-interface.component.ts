@@ -30,7 +30,7 @@ export class ShopInterfaceComponent implements OnInit {
     let shop: Shop = new Shop;
     shop.color = "#e6d6df";
     shop.shopName = "Shop-Online";
-    this.goShop(shop);
+    this.router.navigate([`home`]);
 
   }
 

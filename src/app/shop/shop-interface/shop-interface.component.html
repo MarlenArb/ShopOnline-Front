@@ -1,11 +1,11 @@
 
-<div class="mt-4 ml-5 p-2 return" style="display: inline-block;" title="Volver" routerLink="/home" (click)='return()'><i class="fas fa-caret-left"></i></div>
+<div class="mt-4 ml-5 p-2 return" style="display: inline-block;" title="Volver" (click)='return()'><i class="fas fa-caret-left"></i></div>
 
 <div class="container-lg mt-2">
   <div class="card mt-2 title" *ngFor="let shop of shops" style="cursor: pointer;" (click)='goShop(shop)'>
     <div class="card-body f-20" title="Visitar {{ shop.shopName }}">
       <i class="fas fa-heart heart" [style.color]="shop.color"></i> &nbsp;  {{ shop.shopName }}  
-      <i class="fas fa-store f-25 float-right logo" [style.background-color]="shop.color" [style.border-color]="shop.color"></i>
+      <i class="fas fa-store f-25 float-right logo" [style.background-color]="shop.color" [style.border-color]="shop.color" style="color: #292929;"></i>
     </div>
   </div>
 </div>
