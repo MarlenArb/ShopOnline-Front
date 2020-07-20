@@ -63,3 +63,11 @@ button:hover{
   text-shadow: #333333 6px 4px 0px;
   margin-top: 30vh;
 }
+
+.img2{
+}
+
+.imgCon{
+  width: 50vw;
+  overflow: hidden !important;
+}
