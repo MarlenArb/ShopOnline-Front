@@ -52,7 +52,7 @@ button:hover{
 .titleDiv2{
   z-index: 2000;
   text-align: center;
-  position: relative;
+  position: absolute;
   /*width: 20vw;*/
   display: inline-block;
   font-family: 'Playfair Display', serif;
@@ -61,13 +61,14 @@ button:hover{
   color: transparent;
   background: url("/assets/img/home.jpg") repeat;
   background-clip: text;
-  text-shadow: #333333 6px 4px 0px;
-  margin-top: 30vh;
+  text-shadow: white 6px 4px 0px;
+  margin-top: -64vh;
+  margin-left: 2rem;
 }
 
 .img2{
   display: inline-block;
-  height: 100vh;
+  height: 94vh;
 }
 
 .imgCon{
