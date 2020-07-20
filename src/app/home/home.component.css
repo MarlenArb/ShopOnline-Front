@@ -48,3 +48,18 @@ button{
 button:hover{
   opacity: 0.8;
 }
+
+.titleDiv2{
+  text-align: center;
+  position: relative;
+  width: 100vw;
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 60px !important;
+  font-weight: 800 !important;
+  color: transparent;
+  background: url("/assets/img/home.jpg") repeat;
+  background-clip: text;
+  text-shadow: #333333 6px 4px 0px;
+  margin-top: 30vh;
+}
