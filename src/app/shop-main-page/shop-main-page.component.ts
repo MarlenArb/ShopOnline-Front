@@ -4,6 +4,7 @@ import { Shop } from '../shop/shop';
 import { ShopService } from '../shop/shop.service';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-shop-main-page',
@@ -13,7 +14,7 @@ import { ProductService } from '../product/product.service';
 export class ShopMainPageComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private shopService: ShopService,
-              private productService: ProductService) { }
+              private productService: ProductService, private messageService: MessageService) { }
 
   shop: Shop = new Shop;
   products: Product[] = [];
@@ -44,5 +45,9 @@ export class ShopMainPageComponent implements OnInit {
   mouseleave(){
     this.photoFace = "A";
     console.log(this.photoFace);
+  }
+
+  addToCart(){
+    this.messageService.add({severity:'success', summary:'Producto añadido', detail:`Producto *nombre *añadido al carrito con éxito`});
   }
 }

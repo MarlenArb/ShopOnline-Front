@@ -23,17 +23,21 @@
   </ng-template>
 </p-carousel>
 
-<div class="example-ripple-container mat-elevation-z4" id="rip"
+<div class="example-ripple-container mat-elevation-z4 text-center" id="rippe"
      matRipple
      matRippleRadius="300"
-     matRippleColor="lavenderblush"
+     matRippleColor="#633e4f75"
      >
     
-  <img src="/assets/img/0001{{photoFace}}.PNG" alt="producto" (mouseover)="photoFace='B'" style="height: 300px;" (mouseout)="photoFace='A'">
-  <span *ngIf='photoFace == "B"' class="position-absolute mt-0">Ver Producto</span>
+  <img src="/assets/img/0001{{photoFace}}.PNG" alt="producto" 
+  (mouseover)="photoFace='B'" style="height: 300px;" (mouseout)="photoFace='A'"
+  (dblclick)="addToCart()">
+  
+ <!--  <span *ngIf='photoFace == "B"'class="position-absolute mt-0">Ver Producto</span> -->
+
 </div>
 
-<span *ngIf='photoFace == "B"' class="position-absolute mt-0">Ver Producto</span>
+<span *ngIf='photoFace == "B"' class="position-absolute">Doble Click para añadir a la cesta</span>
 
 </div>
 
