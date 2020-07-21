@@ -22,4 +22,19 @@
     
   </ng-template>
 </p-carousel>
+
+<div class="example-ripple-container mat-elevation-z4" id="rip"
+     matRipple
+     matRippleRadius="300"
+     matRippleColor="lavenderblush"
+     >
+    
+  <img src="/assets/img/0001{{photoFace}}.PNG" alt="producto" (mouseover)="photoFace='B'" style="height: 300px;" (mouseout)="photoFace='A'">
+  <span *ngIf='photoFace == "B"' class="position-absolute mt-0">Ver Producto</span>
 </div>
+
+<span *ngIf='photoFace == "B"' class="position-absolute mt-0">Ver Producto</span>
+
+</div>
+
+

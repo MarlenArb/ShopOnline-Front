@@ -35,6 +35,7 @@ import { ShopOrgChartComponent } from './shop-org-chart/shop-org-chart.component
 import { MakeOrdersComponent } from './make-orders/make-orders.component';
 import { ShopInterfaceComponent } from './shop/shop-interface/shop-interface.component';
 import { ShopMainPageComponent } from './shop-main-page/shop-main-page.component';
+import { DataService } from './shop/shop-interface/data.service';
 
 
 /* Angular Material Modules used */
@@ -47,13 +48,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatRippleModule} from '@angular/material/core';
 
 /* Primeng Modules used */
 import {ButtonModule} from 'primeng/button';
 import {OrganizationChartModule} from 'primeng/organizationchart';
 import {PickListModule} from 'primeng/picklist';
 import {TreeModule} from 'primeng/tree';
-import { DataService } from './shop/shop-interface/data.service';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
@@ -151,7 +152,8 @@ const routes: Routes = [
     TreeModule,
     CarouselModule,
     ToastModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatRippleModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService, MessageService],
   bootstrap: [AppComponent]

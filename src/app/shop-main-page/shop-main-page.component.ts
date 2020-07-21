@@ -17,6 +17,7 @@ export class ShopMainPageComponent implements OnInit {
 
   shop: Shop = new Shop;
   products: Product[] = [];
+  photoFace: string = "A";
 
   ngOnInit() {
     this.getShop();
@@ -33,5 +34,15 @@ export class ShopMainPageComponent implements OnInit {
       }
     })
     
+  }
+
+  mouseover(){
+    this.photoFace = "B";
+    console.log(this.photoFace);
+  }
+
+  mouseleave(){
+    this.photoFace = "A";
+    console.log(this.photoFace);
   }
 }
