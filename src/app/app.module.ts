@@ -59,6 +59,7 @@ import {ColorPickerModule} from 'primeng/colorpicker';
 import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
+import {SidebarModule} from 'primeng/sidebar';
 
 
 registerLocaleData(localeEs, 'es');
@@ -153,7 +154,8 @@ const routes: Routes = [
     CarouselModule,
     ToastModule,
     MatTooltipModule,
-    MatRippleModule
+    MatRippleModule,
+    SidebarModule
   ],
   providers: [ShopService, ClientService, SupplierService, ProductService, OrderService, DataService, MessageService],
   bootstrap: [AppComponent]
