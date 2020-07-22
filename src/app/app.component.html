@@ -2,11 +2,15 @@
 <app-header></app-header>
 
   <div>
-    <button type="text" (click)="display = true" pButton icon="pi pi-key" class="ui-button-raised" style="background-color: #292929;"></button>
-      <router-outlet> </router-outlet>
-      <p-toast position="top-right" baseZIndex="3000"  sticky="true"></p-toast>
+    <button type="text" (click)="display = true" pButton icon="pi pi-key" class="ui-button-raised" style="background-color: #292929;">
+    
+    </button>
 
-      <p-sidebar [(visible)]="display">
+    <router-outlet> </router-outlet>
+
+    <p-toast position="top-right" baseZIndex="3000"  sticky="true"></p-toast>
+
+    <p-sidebar [(visible)]="display">
         Content
     </p-sidebar>
     

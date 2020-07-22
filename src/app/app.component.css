@@ -1,4 +1,13 @@
 button{
   position: absolute;
   margin-top: 20%;
+  border-radius: 40px;
+  border: 2px solid white;
+  height: 120px !important;
+  width: 50px !important;
+  margin-left: -15px;
+}
+
+button:hover{
+  margin-left: -5px;
 }
