@@ -1,4 +1,4 @@
-<div class="justify-content-center align-items-center">
+<div class="justify-content-center align-items-center" [@showContainer]='containerState'>
   <div class="row my-4" [@imgState]='stateName' [@imgTransform]='position'
   (@imgTransform.start)='logger($event)' (@imgTransform.done)='logger($event)'
 >
@@ -6,12 +6,16 @@
   </div>
 
   <div class="row">
-    <div class="row btn-group mx-auto d-block" role="group" aria-label="Basic example">
+    <div class="row btn-group mx-auto d-block" role="group">
       <button type="button" class="btn btn-secondary" (click)='changePosition("translate")'>Translate</button>
       <button type="button" class="btn btn-secondary" (click)='changePosition("rotate")'>Rotate</button>
-      <button type="button" class="btn btn-secondary" (click)='toggle()'>Show</button>
+      <button type="button" class="btn btn-secondary" (click)='show = !show'>Show</button>
       <button type="button" class="btn btn-secondary"  (click)='changePosition("scale")'>Scale</button>
       <button type="button" class="btn btn-secondary"  (click)='changePosition("null"); show = true'>Reset</button>
     </div>
   </div>
+</div>
+
+<div class="row my-2">    
+  <button type="button" class="btn btn-info mx-auto d-inline-block" (click)='show = true; showContainer = !showContainer'>Next Test</button>
 </div>

@@ -25,6 +25,15 @@ export const myAnimations = [
     ]),
 
 
+        //Animation dissapear elements
+  trigger('showContainer', [
+    state('show', style({ opacity: 1, transform: 'translateX(0%) scale(1)'})),
+    state('hide', style({ opacity: 1, transform: 'translateX(-50%) scale(0.2) translateY(-20%)'})),
+    transition('show => hide', animate('1000ms ease-out')),
+    transition('hide => show', animate('600ms ease-out') )
+]),
+
+
 
 
 

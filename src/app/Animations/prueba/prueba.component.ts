@@ -10,6 +10,7 @@ import { myAnimations } from '../animations';
 export class PruebaComponent implements OnInit {
 
   show : boolean = true;
+  showContainer: boolean = true;
   imgPosition = 'void';
   position : string;
 
@@ -21,9 +22,21 @@ export class PruebaComponent implements OnInit {
     return this.show ? 'show' : 'hide';
   }
 
+  get containerState(){
+    return this.showContainer ? 'show' : 'hide';
+  }
+
 
   toggle(){
     this.show = !this.show;
+  }
+
+  toggle2(){
+    this.showContainer = !this.showContainer;
+    console.log(this.showContainer);
+    console.log(this.containerState);
+    
+    
   }
 
   changePosition(newPosition: string){
