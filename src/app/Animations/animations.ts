@@ -34,6 +34,15 @@ export const myAnimations = [
 ]),
 
 
+    //En este caso hide y show se invierten porque hacen referencia al primer conntainer
+  trigger('showContainer2', [
+      state('hide', style({ transform: 'translateX(50%) scale(1) translateY(0%)'})),
+      state('show', style({ transform: 'translateX(50%) scale(0.2) translateY(-20%)'})),
+    transition('show => hide', animate('1000ms ease-out')),
+    transition('hide => show', animate('600ms ease-out') )
+]),
+
+
 
 
 

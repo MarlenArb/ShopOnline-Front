@@ -1,7 +1,7 @@
 <div class="justify-content-center align-items-center" [@showContainer]='containerState'>
+  
   <div class="row my-4" [@imgState]='stateName' [@imgTransform]='position'
-  (@imgTransform.start)='logger($event)' (@imgTransform.done)='logger($event)'
->
+  (@imgTransform.start)='logger($event)' (@imgTransform.done)='logger($event)'>
     <img src="https://i.pinimg.com/736x/db/78/dc/db78dca6680118a0f38c8aab5a06b87d.jpg" alt="gato" class="mx-auto d-block">
   </div>
 
@@ -13,9 +13,19 @@
       <button type="button" class="btn btn-secondary"  (click)='changePosition("scale")'>Scale</button>
       <button type="button" class="btn btn-secondary"  (click)='changePosition("null"); show = true'>Reset</button>
     </div>
+
   </div>
 </div>
 
+
+
+<div class="justify-content-center align-items-center" [@showContainer2]='containerState'>
+<span>hiii Container2</span>
+</div>
+
 <div class="row my-2">    
-  <button type="button" class="btn btn-info mx-auto d-inline-block" (click)='show = true; showContainer = !showContainer'>Next Test</button>
+  <button type="button" class="btn btn-info mx-auto d-inline-block" (click)='show = true; showContainer = !showContainer'>
+    <span *ngIf="showContainer">Next Test <i class="fas fa-step-forward"></i></span>
+    <span *ngIf="!showContainer"><i class="fas fa-step-backward"></i> Previus Test</span>
+  </button>
 </div>

@@ -27,9 +27,6 @@ export class PruebaComponent implements OnInit {
   }
 
 
-  toggle(){
-    this.show = !this.show;
-  }
 
   toggle2(){
     this.showContainer = !this.showContainer;
