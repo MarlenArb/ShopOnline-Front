@@ -14,6 +14,8 @@ export class PruebaComponent implements OnInit {
   imgPosition = 'void';
   position : string;
 
+  cats: string[] = ['Gato 1', 'Gato 2', 'Gato 3'];
+
   constructor() { }
 
   ngOnInit() { }

@@ -8,5 +8,9 @@ img{
 
 
 .controller{
-  margin-top: 470px !important;
+}
+
+#gato{
+  width: 148px;
+  height: 148px;
 }
