@@ -11,6 +11,7 @@ export class PruebaComponent implements OnInit {
 
   show : boolean = true;
   imgPosition = 'void';
+  position : string;
 
   constructor() { }
 
@@ -20,12 +21,17 @@ export class PruebaComponent implements OnInit {
     return this.show ? 'show' : 'hide';
   }
 
+
   toggle(){
     this.show = !this.show;
   }
 
+  changePosition(newPosition: string){
+    this.position = newPosition;
+  }
+
   logger($event){
-    console.log("animation: " + $event.phaseName);
+    console.log(this.position + " animation: " + $event.phaseName);
     
   }
 
