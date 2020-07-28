@@ -9,7 +9,8 @@ import { myAnimations } from '../animations';
 })
 export class PruebaComponent implements OnInit {
 
-  show : boolean = false;
+  show : boolean = true;
+  imgPosition = 'void';
 
   constructor() { }
 
@@ -21,6 +22,11 @@ export class PruebaComponent implements OnInit {
 
   toggle(){
     this.show = !this.show;
+  }
+
+  logger($event){
+    console.log("animation: " + $event.phaseName);
+    
   }
 
 }

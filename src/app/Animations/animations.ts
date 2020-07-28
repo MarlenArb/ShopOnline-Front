@@ -6,12 +6,23 @@ import {
 export const myAnimations = [
 
     //Animation dissapear elements
-  trigger('imgTransform', [
+  trigger('imgState', [
       state('show', style({ opacity: 1})),
       state('hide', style({ opacity: 0})),
       transition('show => hide', animate('1000ms ease-out')),
       transition('hide => show', animate('600ms ease-out') )
   ]),
+
+
+      //Animation dissapear elements
+      trigger('imgTransform', [
+        state('void', style({ transform: 'translateX(0%)'})),
+        state('translate', style({transform: 'translateX(20%)'})),
+        state('rotate', style({transform: 'rotateY(180deg) rotateZ(90deg)'})),
+        state('scale', style({transform: 'scale(1.2)'})),
+
+        transition('* => *', animate('1000ms ease'))
+    ]),
 
 
 
