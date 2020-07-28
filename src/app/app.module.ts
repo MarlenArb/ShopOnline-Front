@@ -60,6 +60,7 @@ import {CarouselModule} from 'primeng/carousel';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import {SidebarModule} from 'primeng/sidebar';
+import { PruebaComponent } from './Animations/prueba/prueba.component';
 
 
 registerLocaleData(localeEs, 'es');
@@ -67,6 +68,7 @@ registerLocaleData(localeEs, 'es');
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   {path: 'home', component: HomeComponent},
+  {path: 'prueba', component: PruebaComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'shoporg', component: ShopOrgChartComponent},
   {path: 'shop/form', component: SformComponent},
@@ -129,7 +131,8 @@ const routes: Routes = [
     ShopOrgChartComponent,
     MakeOrdersComponent,
     ShopInterfaceComponent,
-    ShopMainPageComponent
+    ShopMainPageComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,

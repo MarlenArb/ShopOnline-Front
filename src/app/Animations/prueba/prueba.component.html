@@ -1,0 +1,14 @@
+<div class="justify-content-center align-items-center">
+  <div class="row my-4" [@imgTransform]='stateName'>
+    <img src="https://i.pinimg.com/736x/db/78/dc/db78dca6680118a0f38c8aab5a06b87d.jpg" alt="gato" class="mx-auto d-block">
+  </div>
+
+  <div class="row">
+    <div class="row btn-group mx-auto d-block" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary">Translate</button>
+      <button type="button" class="btn btn-secondary">Rotate</button>
+      <button type="button" class="btn btn-secondary" (click)='toggle()'>Show</button>
+      <button type="button" class="btn btn-secondary">Scale</button>
+    </div>
+  </div>
+</div>

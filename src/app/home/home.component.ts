@@ -3,11 +3,14 @@ import { ShopService } from '../shop/shop.service';
 import { Shop } from '../shop/shop';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
+import { myAnimations } from 'src/app/Animations/animations';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [myAnimations]
 })
 export class HomeComponent implements OnInit {
 
