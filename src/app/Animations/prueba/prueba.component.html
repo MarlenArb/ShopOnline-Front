@@ -20,7 +20,7 @@
 
 
 <!--Container 2-->
-<div class="justify-content-center align-items-center" [@showContainer2]='containerState'>
+<div class="justify-content-center align-items-center container2" [@showContainer2]='containerState'>
   <div class="row my-2">    
     <div  class="mx-auto d-inline-block">
       <span >Hii</span>
@@ -30,7 +30,7 @@
 
 
 <!--Container Controller-->
-<div class="row my-2">    
+<div class="row controller">    
   <button type="button" class="btn btn-info mx-auto d-inline-block" (click)='show = true; showContainer = !showContainer'>
     <span *ngIf="showContainer">Next Test <i class="fas fa-step-forward"></i></span>
     <span *ngIf="!showContainer"><i class="fas fa-step-backward"></i> Previus Test</span>
