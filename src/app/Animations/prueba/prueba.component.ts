@@ -13,6 +13,7 @@ export class PruebaComponent implements OnInit {
   showContainer: boolean = true;
   imgPosition = 'void';
   position : string;
+  color: string = 'original';
 
   cats: string[] = ['Gato 1', 'Gato 2', 'Gato 3'];
 

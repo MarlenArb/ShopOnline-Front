@@ -1,7 +1,7 @@
 <!--Container 1-->
 <div class="justify-content-center align-items-center" [@showContainer]='containerState'>
 
-  <div class="row my-4" [@imgState]='stateName' [@imgTransform]='position'
+  <div class="row my-4" [@imgState]='stateName' [@imgTransform]='position' [@imgColor]='color'
   (@imgTransform.start)='logger($event)' (@imgTransform.done)='logger($event)'>
     <img src="https://i.pinimg.com/736x/db/78/dc/db78dca6680118a0f38c8aab5a06b87d.jpg" alt="gato" class="mx-auto d-block">
   </div>
@@ -14,8 +14,21 @@
       <button type="button" class="btn btn-secondary"  (click)='changePosition("scale")'>Scale</button>
       <button type="button" class="btn btn-secondary"  (click)='changePosition("null"); show = true'>Reset</button>
     </div>
-
   </div>
+
+  <div class="row">
+    <div class="row btn-group mx-auto d-block" role="group">
+            <button type="button" class="btn btn-primary" (click)='color = "blue"'>Blue</button>
+            <button type="button" class="btn text-white" style="background-color: purple;" (click)='color = "purple"'>Purple</button>
+            <button type="button" class="btn text-white" style="background-color: fuchsia;" (click)='color = "pink"'>Pink</button>
+            <button type="button" class="btn btn-success"  (click)='color = "green"'>Green</button>
+            <button type="button" class="btn btn-warning text-white"  (click)='color = "yellow"'>Yellow</button>
+            <button type="button" class="btn btn-secondary"  (click)='color = "original"'>Original</button>
+    </div>
+  </div>
+  
+
+
 </div>
 
 
@@ -27,7 +40,7 @@
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <img src="/assets/img/cat/cat ({{i}}).jpg" class="card-img" alt="..." id="gato">
+            <img src="/assets/img/cat/cat ({{i + 1}}).jpg" class="card-img" alt="..." id="gato">
           </div>
           <div class="col-md-8">
             <div class="card-body">

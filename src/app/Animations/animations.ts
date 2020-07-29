@@ -24,6 +24,18 @@ export const myAnimations = [
         transition('* => *', animate('1000ms ease'))
     ]),
 
+    //Filter to change the color
+    trigger('imgColor', [
+        state('original', style({ filter: 'hue-rotate(0deg)' })),
+        state('pink', style({ filter: 'hue-rotate(150deg)' })),
+        state('purple', style({ filter: 'hue-rotate(100deg)' })),
+        state('blue', style({ filter: 'hue-rotate(60deg)' })),
+        state('green', style({ filter: 'hue-rotate(320deg)' })),
+        state('yellow', style({ filter: 'hue-rotate(240deg)' })),
+
+        transition('* => *', animate('1000ms ease'))
+    ]),
+
 
         //Animation dissapear elements
   trigger('showContainer', [
